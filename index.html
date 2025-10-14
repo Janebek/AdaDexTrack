@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expert Policy</title>
+  <style>
+    :root { --gap: 16px; --radius: 18px; }
+
+    /* 全局：白底 + 深灰文字 */
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, PingFang SC, Noto Sans SC, sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #111827;
+    }
+
+    /* 顶部大标题（仅标题，无搜索框） */
+    header{
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: saturate(1.2) blur(6px);
+      background: rgba(255,255,255,.9);
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .wrap{ max-width: 1600px; margin: 0 auto; padding: 18px 16px; }
+    h1{
+      margin: 0;
+      font-size: 32px;          /* 大标题字号 */
+      font-weight: 800;
+      letter-spacing: .2px;
+      text-align: center;        /* 居中 */
+    }
+
+    /* 大号网格：卡片最小 520px，屏幕窄时自动降到 420/320 */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+      gap: var(--gap);
+      padding: var(--gap);
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    @media (max-width: 1280px){
+      .grid{ grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); }
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+    }
+
+    /* 卡片：白底 + 细边 + 柔和阴影 */
+    .card{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    @media (hover:hover){
+      .card:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba(0,0,0,.12);
+      }
+    }
+
+    .player{ position:relative; aspect-ratio:16/9; background:#000; }
+    video, img{ width:100%; height:100%; object-fit:cover; display:block; border:0; }
+  </style>
+</head>
+<body>
+
+  <!-- 新增的大标题 -->
+  <header>
+    <div class="wrap">
+      <h1>Expert Policy</h1>
+    </div>
+  </header>
+
+  <main class="grid" id="grid"></main>
+
+<script>
+async function loadManifest(){
+  const res = await fetch('manifest.json', { cache: 'no-store' });
+  if(!res.ok) throw new Error('manifest.json 加载失败');
+  return res.json();
+}
+
+/* 洗牌：Fisher–Yates */
+function shuffle(arr){
+  for(let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function makeCard(item){
+  const card = document.createElement('article');
+  card.className = 'card';
+
+  const player = document.createElement('div');
+  player.className = 'player';
+
+  // 先放海报，进入视口再换成 <video>
+  const poster = document.createElement('img');
+  poster.alt = item.title || item.file || '';
+  poster.loading = 'lazy';
+  poster.decoding = 'async';
+  poster.src = item.poster || '';
+  if(!item.poster){ poster.style.background = '#000'; }
+  player.appendChild(poster);
+
+  card.appendChild(player);
+
+  // 懒加载：出现时才创建 <video>
+  const io = new IntersectionObserver(entries => {
+    for(const e of entries){
+      if(e.isIntersecting){
+        io.disconnect();
+        const v = document.createElement('video');
+        v.setAttribute('controls', '');
+        v.setAttribute('playsinline','');
+        v.setAttribute('preload','metadata');
+        if(item.poster) v.setAttribute('poster', item.poster);
+        v.src = item.src; // 相对路径，如 videos/xxx.mp4
+        player.replaceChild(v, poster);
+      }
+    }
+  }, { rootMargin: '160px' });
+  io.observe(card);
+
+  return card;
+}
+
+function render(list){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  for(const item of list){ grid.appendChild(makeCard(item)); }
+}
+
+/* 加载清单 → 打乱 → 渲染一次 */
+loadManifest()
+  .then(list => { render(shuffle(list.slice())); })
+  .catch(err => {
+    const grid = document.getElementById('grid');
+    grid.innerHTML = `<p style="opacity:.8;padding:16px">加载清单失败：${err.message}。请确认 manifest.json 已生成并在仓库根目录。</p>`;
+  });
+</script>
+</body>
+</html>
