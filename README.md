@@ -9,4 +9,4 @@
 
 > 每次你往 `videos/` 新增或删除文件，工作流都会自动重新生成 `manifest.json` 并部署。
 
-test a
+test 
