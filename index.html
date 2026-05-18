@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AdaDexTrack</title>
+
   <style>
     :root {
       --text: #1f2937;
@@ -17,8 +18,13 @@
       --max: 1080px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -28,7 +34,9 @@
       line-height: 1.65;
     }
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+    }
 
     .hero {
       position: relative;
@@ -63,7 +71,12 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.18) 35%, rgba(0, 0, 0, 0.55) 100%);
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.28) 0%,
+        rgba(0, 0, 0, 0.18) 35%,
+        rgba(0, 0, 0, 0.55) 100%
+      );
       z-index: -1;
     }
 
@@ -89,7 +102,9 @@
       opacity: 0.95;
     }
 
-    .hero-nav a:hover { opacity: 1; }
+    .hero-nav a:hover {
+      opacity: 1;
+    }
 
     .hero-link {
       display: inline-flex;
@@ -97,42 +112,12 @@
       gap: 9px;
     }
 
-    .pdf-icon {
-      width: 35px;
-      height: 35px;
-      flex: 0 0 auto;
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.28));
-    }
-
-    .arxiv-icon {
-      position: relative;
-      width: 38px;
-      height: 38px;
-      flex: 0 0 auto;
-      display: inline-block;
-      transform: translateY(1px);
-    }
-
-    .arxiv-icon::before,
-    .arxiv-icon::after {
-      content: "";
-      position: absolute;
-      left: 17px;
-      top: 2px;
-      width: 5px;
+    .nav-icon {
+      width: 34px;
       height: 34px;
-      border-radius: 999px;
-      transform-origin: center;
-    }
-
-    .arxiv-icon::before {
-      background: #90a4c8;
-      transform: rotate(42deg);
-    }
-
-    .arxiv-icon::after {
-      background: #dc2626;
-      transform: rotate(-42deg);
+      object-fit: contain;
+      display: inline-block;
+      flex: 0 0 auto;
     }
 
     .hero-nav .code-button {
@@ -197,7 +182,9 @@
       padding: 58px 20px;
     }
 
-    section.compact { padding-top: 44px; }
+    section.compact {
+      padding-top: 44px;
+    }
 
     h2 {
       margin: 0 0 22px;
@@ -271,7 +258,9 @@
       color: #374151;
     }
 
-    .text-card p:last-child { margin-bottom: 0; }
+    .text-card p:last-child {
+      margin-bottom: 0;
+    }
 
     .steps {
       display: grid;
@@ -349,33 +338,49 @@
         padding: 9px 18px;
       }
 
-      .hero-content { padding-top: 120px; }
-      .hero-title { font-size: clamp(48px, 16vw, 82px); }
-      .hero-subtitle { font-size: clamp(28px, 9vw, 48px); }
-      .video-grid, .steps { grid-template-columns: 1fr; }
+      .hero-content {
+        padding-top: 120px;
+      }
+
+      .hero-title {
+        font-size: clamp(48px, 16vw, 82px);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(28px, 9vw, 48px);
+      }
+
+      .video-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
   <header class="hero" id="home">
     <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata"></video>
 
     <nav class="hero-nav" aria-label="Project navigation">
       <a class="hero-link" href="#paper" aria-label="Paper">
-        <svg class="pdf-icon" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M14 3h28l12 12v46H14z" fill="#f3f4f6"/>
-          <path d="M42 3v14h14" fill="#d1d5db"/>
-          <rect x="6" y="31" width="38" height="18" rx="3" fill="#ef4444"/>
-          <text x="25" y="44" text-anchor="middle" font-size="12" font-family="Arial, sans-serif" font-weight="800" fill="white">PDF</text>
-        </svg>
+        <img class="nav-icon" src="static/icons/pdf.svg" alt="PDF">
         <span>Paper</span>
       </a>
+
       <a class="hero-link" href="#arxiv" aria-label="arXiv">
-        <span class="arxiv-icon" aria-hidden="true"></span>
+        <img class="nav-icon" src="static/icons/arxiv.svg" alt="ArXiv">
         <span>arXiv</span>
       </a>
-      <a href="#videos">▶️ Video</a>
-      <a class="code-button" href="https://github.com/Janebek/AdaDexTrack" target="_blank" rel="noreferrer">Code</a>
+
+      <a class="hero-link" href="#videos" aria-label="Video">
+        <span>▶️</span>
+        <span>Video</span>
+      </a>
+
+      <a class="code-button" href="https://github.com/Janebek/AdaDexTrack" target="_blank" rel="noreferrer">
+        Code
+      </a>
     </nav>
 
     <div class="hero-content">
@@ -398,30 +403,40 @@
   <section id="paper">
     <h2>Abstract</h2>
     <div class="text-card">
-      <p>Replace this paragraph with the real abstract of AdaDexTrack. Keep it concise: describe the problem, the core method, and the main result.</p>
-      <p>This version uses a fullscreen autoplay video as the landing cover, similar to a modern robotics project page.</p>
+      <p>
+        Replace this paragraph with the real abstract of AdaDexTrack. Keep it concise: describe the problem, the core method, and the main result.
+      </p>
+      <p>
+        This version uses a fullscreen autoplay video as the landing cover, similar to a modern robotics project page.
+      </p>
     </div>
   </section>
 
   <section id="arxiv">
     <h2>Method</h2>
-    <p class="section-lead">Replace these four cards with the actual pipeline of your project.</p>
+    <p class="section-lead">
+      Replace these four cards with the actual pipeline of your project.
+    </p>
+
     <div class="steps">
       <article class="step">
         <div class="step-number">1</div>
         <h3>Data / Demonstrations</h3>
         <p>Collect or retarget demonstrations used for dexterous tracking.</p>
       </article>
+
       <article class="step">
         <div class="step-number">2</div>
         <h3>Expert Policy</h3>
         <p>Train or load the expert policy that produces rollout trajectories.</p>
       </article>
+
       <article class="step">
         <div class="step-number">3</div>
         <h3>Tracking</h3>
         <p>Evaluate tracking behavior across tasks, objects, or environments.</p>
       </article>
+
       <article class="step">
         <div class="step-number">4</div>
         <h3>Deployment</h3>
@@ -440,137 +455,187 @@
 }</code></pre>
   </section>
 
-  <footer>Replace placeholder text and links before publishing.</footer>
+  <footer>
+    Replace placeholder text and links before publishing.
+  </footer>
 
-<script>
-const HERO_VIDEO_SRC = '';
-const MAX_VIDEOS = Infinity;
+  <script>
+    /*
+      首页动态封面视频设置：
 
-async function loadManifest() {
-  const res = await fetch('manifest.json', { cache: 'no-store' });
-  if (!res.ok) throw new Error('manifest.json 加载失败');
-  return res.json();
-}
+      1. 留空时，自动使用 manifest.json 里的第一个视频：
+         const HERO_VIDEO_SRC = '';
 
-function cleanTitle(item) {
-  const raw = item.title || item.file || item.src || 'Demo';
-  const baseName = raw.split('/').pop();
-  const dotIndex = baseName.lastIndexOf('.');
-  const filename = dotIndex > 0 ? baseName.slice(0, dotIndex) : baseName;
-  return filename
-    .replace(/^IMG[_-]?/i, 'Demo ')
-    .replace(/[_-]+/g, ' ')
-    .split(' ')
-    .filter(Boolean)
-    .join(' ')
-    .trim();
-}
+      2. 想指定某个视频做封面，就写具体路径：
+         const HERO_VIDEO_SRC = 'videos/IMG_0344.mp4';
+    */
+    const HERO_VIDEO_SRC = '';
 
-function normalizedItem(item) {
-  if (typeof item === 'string') {
-    return { src: item, title: cleanTitle({ src: item }) };
-  }
-  return {
-    ...item,
-    src: item.src || item.url || item.file,
-    title: cleanTitle(item)
-  };
-}
+    /*
+      展示视频数量：
+      Infinity = 全部展示
+      12 = 只展示前 12 个
+    */
+    const MAX_VIDEOS = Infinity;
 
-function setupHeroVideo(items) {
-  const heroVideo = document.getElementById('hero-video');
-  const coverSrc = HERO_VIDEO_SRC || (items[0] && items[0].src);
-  if (!coverSrc) return;
+    async function loadManifest() {
+      const res = await fetch('manifest.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('manifest.json 加载失败');
+      return res.json();
+    }
 
-  heroVideo.src = coverSrc;
-  heroVideo.muted = true;
-  heroVideo.loop = true;
-  heroVideo.playsInline = true;
+    function cleanTitle(item) {
+      const raw = item.title || item.file || item.src || 'Demo';
+      const baseName = raw.split('/').pop();
+      const dotIndex = baseName.lastIndexOf('.');
+      const filename = dotIndex > 0 ? baseName.slice(0, dotIndex) : baseName;
 
-  const playPromise = heroVideo.play();
-  if (playPromise && typeof playPromise.catch === 'function') {
-    playPromise.catch(() => {});
-  }
-}
+      return filename
+        .replace(/^IMG[_-]?/i, 'Demo ')
+        .replace(/[_-]+/g, ' ')
+        .split(' ')
+        .filter(Boolean)
+        .join(' ')
+        .trim();
+    }
 
-function createVideoElement(item, options = {}) {
-  const video = document.createElement('video');
-  video.src = item.src;
-  video.controls = options.controls ?? true;
-  video.playsInline = true;
-  video.preload = options.preload || 'metadata';
-  if (item.poster) video.poster = item.poster;
+    function normalizedItem(item) {
+      if (typeof item === 'string') {
+        return {
+          src: item,
+          title: cleanTitle({ src: item })
+        };
+      }
 
-  if (options.autoplay) {
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-  }
+      return {
+        ...item,
+        src: item.src || item.url || item.file,
+        title: item.title || cleanTitle(item)
+      };
+    }
 
-  return video;
-}
+    function setupHeroVideo(items) {
+      const heroVideo = document.getElementById('hero-video');
+      const coverSrc = HERO_VIDEO_SRC || (items[0] && items[0].src);
 
-function makeLazyVideoCard(item) {
-  const card = document.createElement('article');
-  card.className = 'video-card';
+      if (!coverSrc) return;
 
-  const box = document.createElement('div');
-  box.className = 'video-box';
+      heroVideo.src = coverSrc;
+      heroVideo.muted = true;
+      heroVideo.loop = true;
+      heroVideo.playsInline = true;
 
-  let placeholder;
-  if (item.poster) {
-    placeholder = document.createElement('img');
-    placeholder.src = item.poster;
-    placeholder.alt = item.title;
-    placeholder.loading = 'lazy';
-    placeholder.decoding = 'async';
-  } else {
-    placeholder = document.createElement('div');
-    placeholder.style.width = '100%';
-    placeholder.style.height = '100%';
-    placeholder.style.background = '#000';
-  }
+      const playPromise = heroVideo.play();
 
-  box.appendChild(placeholder);
-
-  const caption = document.createElement('div');
-  caption.className = 'caption';
-  caption.textContent = item.title;
-
-  card.appendChild(box);
-  card.appendChild(caption);
-
-  const io = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        io.disconnect();
-        const video = createVideoElement(item, { controls: true, preload: 'metadata' });
-        box.replaceChild(video, placeholder);
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {
+          /*
+            部分浏览器会拦截自动播放。
+            muted + playsinline 通常可以解决。
+          */
+        });
       }
     }
-  }, { rootMargin: '180px' });
 
-  io.observe(card);
-  return card;
-}
+    function createVideoElement(item, options = {}) {
+      const video = document.createElement('video');
 
-function renderVideos(items) {
-  const grid = document.getElementById('video-grid');
-  grid.innerHTML = '';
-  for (const item of items.slice(0, MAX_VIDEOS)) {
-    grid.appendChild(makeLazyVideoCard(item));
-  }
-}
+      video.src = item.src;
+      video.controls = options.controls ?? true;
+      video.playsInline = true;
+      video.preload = options.preload || 'metadata';
 
-loadManifest()
-  .then(rawList => {
-    const list = rawList.map(normalizedItem).filter(item => item.src);
-    setupHeroVideo(list);
-    renderVideos(list);
-  })
-  .catch(err => {
-    document.getElementById('video-grid').innerHTML = '<div class="error">' + err.message + '。请确认仓库根目录存在 manifest.json，且视频路径类似 videos/xxx.mp4。</div>';
-  });
-</script>
+      if (item.poster) {
+        video.poster = item.poster;
+      }
+
+      if (options.autoplay) {
+        video.autoplay = true;
+        video.muted = true;
+        video.loop = true;
+      }
+
+      return video;
+    }
+
+    function makeLazyVideoCard(item) {
+      const card = document.createElement('article');
+      card.className = 'video-card';
+
+      const box = document.createElement('div');
+      box.className = 'video-box';
+
+      let placeholder;
+
+      if (item.poster) {
+        placeholder = document.createElement('img');
+        placeholder.src = item.poster;
+        placeholder.alt = item.title;
+        placeholder.loading = 'lazy';
+        placeholder.decoding = 'async';
+      } else {
+        placeholder = document.createElement('div');
+        placeholder.style.width = '100%';
+        placeholder.style.height = '100%';
+        placeholder.style.background = '#000';
+      }
+
+      box.appendChild(placeholder);
+
+      const caption = document.createElement('div');
+      caption.className = 'caption';
+      caption.textContent = item.title;
+
+      card.appendChild(box);
+      card.appendChild(caption);
+
+      const io = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            io.disconnect();
+
+            const video = createVideoElement(item, {
+              controls: true,
+              preload: 'metadata'
+            });
+
+            box.replaceChild(video, placeholder);
+          }
+        }
+      }, {
+        rootMargin: '180px'
+      });
+
+      io.observe(card);
+
+      return card;
+    }
+
+    function renderVideos(items) {
+      const grid = document.getElementById('video-grid');
+      grid.innerHTML = '';
+
+      for (const item of items.slice(0, MAX_VIDEOS)) {
+        grid.appendChild(makeLazyVideoCard(item));
+      }
+    }
+
+    loadManifest()
+      .then(rawList => {
+        const list = rawList
+          .map(normalizedItem)
+          .filter(item => item.src);
+
+        setupHeroVideo(list);
+        renderVideos(list);
+      })
+      .catch(err => {
+        document.getElementById('video-grid').innerHTML =
+          '<div class="error">' +
+          err.message +
+          '。请确认仓库根目录存在 manifest.json，且视频路径类似 videos/xxx.mp4。' +
+          '</div>';
+      });
+  </script>
 </body>
 </html>
