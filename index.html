@@ -3,147 +3,570 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Expert Policy</title>
+  <title>AdaDexTrack</title>
   <style>
-    :root { --gap: 16px; --radius: 18px; }
+    :root {
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #ffffff;
+      --soft: #f8fafc;
+      --accent: #2563eb;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --max: 1080px;
+    }
 
-    /* 全局：白底 + 深灰文字 */
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, PingFang SC, Noto Sans SC, sans-serif;
       margin: 0;
-      background: #ffffff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 20px 36px;
+      text-align: center;
+    }
+
+    .kicker {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 0 auto 18px;
+      max-width: 980px;
+      font-size: clamp(36px, 6vw, 70px);
+      line-height: 1.03;
+      letter-spacing: -0.05em;
+      font-weight: 850;
+    }
+
+    .subtitle {
+      max-width: 850px;
+      margin: 0 auto 20px;
+      color: var(--muted);
+      font-size: clamp(17px, 2.2vw, 23px);
+      line-height: 1.45;
+    }
+
+    .authors {
+      max-width: 860px;
+      margin: 22px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 14px;
+      color: #374151;
+      font-size: 16px;
+    }
+
+    .authors a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .authors a:hover { text-decoration: underline; }
+
+    .buttons {
+      margin: 28px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 10px 17px;
+      background: #111827;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 8px 18px rgba(17, 24, 39, 0.18);
+    }
+
+    .button.secondary {
+      background: white;
+      color: #111827;
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .feature {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px 20px 36px;
+    }
+
+    .feature-card {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: #000;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #000;
+    }
+
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+
+    section.compact { padding-top: 28px; }
+
+    h2 {
+      margin: 0 0 22px;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      text-align: center;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .section-lead {
+      max-width: 780px;
+      margin: -8px auto 28px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 17px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .video-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    .video-box {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .video-box video,
+    .video-box img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 0;
+    }
+
+    .caption {
+      padding: 13px 15px 15px;
+      text-align: center;
+      font-weight: 750;
       color: #111827;
     }
 
-    /* 顶部大标题（仅标题，无搜索框） */
-    header{
-      position: sticky; top: 0; z-index: 10;
-      backdrop-filter: saturate(1.2) blur(6px);
-      background: rgba(255,255,255,.9);
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .wrap{ max-width: 1600px; margin: 0 auto; padding: 18px 16px; }
-    h1{
-      margin: 0;
-      font-size: 32px;          /* 大标题字号 */
-      font-weight: 800;
-      letter-spacing: .2px;
-      text-align: center;        /* 居中 */
-    }
-
-    /* 大号网格：卡片最小 520px，屏幕窄时自动降到 420/320 */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
-      gap: var(--gap);
-      padding: var(--gap);
-      max-width: 1600px;
+    .text-card {
+      max-width: 900px;
       margin: 0 auto;
-    }
-    @media (max-width: 1280px){
-      .grid{ grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); }
-    }
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+      padding: 26px;
+      border-radius: 22px;
+      background: var(--soft);
+      border: 1px solid var(--line);
     }
 
-    /* 卡片：白底 + 细边 + 柔和阴影 */
-    .card{
-      background:#fff;
-      border:1px solid #e5e7eb;
-      border-radius: var(--radius);
-      overflow:hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,.08);
-      transition: transform .18s ease, box-shadow .18s ease;
+    .text-card p {
+      margin: 0 0 14px;
+      color: #374151;
     }
-    @media (hover:hover){
-      .card:hover{
-        transform: translateY(-2px);
-        box-shadow: 0 10px 28px rgba(0,0,0,.12);
+
+    .text-card p:last-child { margin-bottom: 0; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .step {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: white;
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    pre {
+      margin: 0 auto;
+      max-width: 900px;
+      overflow-x: auto;
+      padding: 22px;
+      border-radius: 18px;
+      background: #0f172a;
+      color: #e5e7eb;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 20px 42px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .error {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 18px 20px;
+      border: 1px solid #fecaca;
+      background: #fef2f2;
+      color: #991b1b;
+      border-radius: 16px;
+    }
+
+    @media (max-width: 820px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .video-grid,
+      .steps {
+        grid-template-columns: 1fr;
       }
     }
-
-    .player{ position:relative; aspect-ratio:16/9; background:#000; }
-    video, img{ width:100%; height:100%; object-fit:cover; display:block; border:0; }
   </style>
 </head>
 <body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">AdaDexTrack</div>
+      <div class="nav-links">
+        <a href="#videos">Videos</a>
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#bibtex">BibTeX</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- 新增的大标题 -->
-  <header>
-    <div class="wrap">
-      <h1>Expert Policy</h1>
+  <header class="hero">
+    <p class="kicker">Project Page</p>
+    <h1>AdaDexTrack</h1>
+    <p class="subtitle">
+      Adaptive Dexterous Tracking with Expert Policy Rollouts
+    </p>
+
+    <div class="authors">
+      <span>Your Name</span>
+      <span>·</span>
+      <span>Your Lab / Institution</span>
+    </div>
+
+    <div class="buttons">
+      <a class="button" href="#videos">Videos</a>
+      <a class="button secondary" href="https://github.com/Janebek/AdaDexTrack" target="_blank" rel="noreferrer">Code</a>
+      <a class="button secondary" href="#bibtex">BibTeX</a>
     </div>
   </header>
 
-  <main class="grid" id="grid"></main>
+  <div class="feature" id="feature"></div>
+
+  <section id="videos" class="compact">
+    <h2>Expert Policy Rollouts</h2>
+    <p class="section-lead">
+      Demonstrations are loaded from <code>manifest.json</code>. Add or remove videos in <code>videos/</code>, then GitHub Actions can regenerate the list.
+    </p>
+    <div class="video-grid" id="video-grid"></div>
+  </section>
+
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <div class="text-card">
+      <p>
+        Replace this paragraph with the real abstract of AdaDexTrack. Keep it concise: describe the problem, the core method, and the main result.
+      </p>
+      <p>
+        This template is intentionally close to a robotics paper project page: title, author block, action buttons, video demonstrations, method summary, and citation block.
+      </p>
+    </div>
+  </section>
+
+  <section id="method">
+    <h2>Method</h2>
+    <p class="section-lead">
+      Replace these four cards with the actual pipeline of your project.
+    </p>
+    <div class="steps">
+      <article class="step">
+        <div class="step-number">1</div>
+        <h3>Data / Demonstrations</h3>
+        <p>Collect or retarget demonstrations used for dexterous tracking.</p>
+      </article>
+      <article class="step">
+        <div class="step-number">2</div>
+        <h3>Expert Policy</h3>
+        <p>Train or load the expert policy that produces rollout trajectories.</p>
+      </article>
+      <article class="step">
+        <div class="step-number">3</div>
+        <h3>Tracking</h3>
+        <p>Evaluate tracking behavior across tasks, objects, or environments.</p>
+      </article>
+      <article class="step">
+        <div class="step-number">4</div>
+        <h3>Deployment</h3>
+        <p>Show the policy in simulation or real-world deployment settings.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="bibtex">
+    <h2>BibTeX</h2>
+    <pre><code>@misc{adadextrack2026,
+  title  = {AdaDexTrack},
+  author = {Your Name},
+  year   = {2026},
+  url    = {https://janebek.github.io/AdaDexTrack/}
+}</code></pre>
+  </section>
+
+  <footer>
+    Page style adapted for a clean robotics project homepage. Replace placeholder text before publishing.
+  </footer>
 
 <script>
-async function loadManifest(){
+const FEATURED_COUNT = 1;
+const MAX_VIDEOS = Infinity; // 改成 12、20 等数字可以限制展示数量
+
+async function loadManifest() {
   const res = await fetch('manifest.json', { cache: 'no-store' });
-  if(!res.ok) throw new Error('manifest.json 加载失败');
+  if (!res.ok) throw new Error('manifest.json 加载失败');
   return res.json();
 }
 
-/* 洗牌：Fisher–Yates */
-function shuffle(arr){
-  for(let i = arr.length - 1; i > 0; i--){
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
+function cleanTitle(item) {
+  const raw = item.title || item.file || item.src || 'Demo';
+  const filename = raw.split('/').pop().replace(/\.[^.]+$/, '');
+  return filename
+    .replace(/^IMG[_-]?/i, 'Demo ')
+    .replace(/[_-]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
-function makeCard(item){
+function normalizedItem(item) {
+  if (typeof item === 'string') {
+    return { src: item, title: cleanTitle({ src: item }) };
+  }
+  return {
+    ...item,
+    src: item.src || item.url || item.file,
+    title: cleanTitle(item)
+  };
+}
+
+function createVideoElement(item, options = {}) {
+  const video = document.createElement('video');
+  video.src = item.src;
+  video.controls = options.controls ?? true;
+  video.playsInline = true;
+  video.preload = options.preload || 'metadata';
+  if (item.poster) video.poster = item.poster;
+
+  if (options.autoplay) {
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+  }
+
+  return video;
+}
+
+function makeLazyVideoCard(item) {
   const card = document.createElement('article');
-  card.className = 'card';
+  card.className = 'video-card';
 
-  const player = document.createElement('div');
-  player.className = 'player';
+  const box = document.createElement('div');
+  box.className = 'video-box';
 
-  // 先放海报，进入视口再换成 <video>
-  const poster = document.createElement('img');
-  poster.alt = item.title || item.file || '';
-  poster.loading = 'lazy';
-  poster.decoding = 'async';
-  poster.src = item.poster || '';
-  if(!item.poster){ poster.style.background = '#000'; }
-  player.appendChild(poster);
+  let placeholder;
+  if (item.poster) {
+    placeholder = document.createElement('img');
+    placeholder.src = item.poster;
+    placeholder.alt = item.title;
+    placeholder.loading = 'lazy';
+    placeholder.decoding = 'async';
+  } else {
+    placeholder = document.createElement('div');
+    placeholder.style.width = '100%';
+    placeholder.style.height = '100%';
+    placeholder.style.background = '#000';
+  }
 
-  card.appendChild(player);
+  box.appendChild(placeholder);
 
-  // 懒加载：出现时才创建 <video>
+  const caption = document.createElement('div');
+  caption.className = 'caption';
+  caption.textContent = item.title;
+
+  card.appendChild(box);
+  card.appendChild(caption);
+
   const io = new IntersectionObserver(entries => {
-    for(const e of entries){
-      if(e.isIntersecting){
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
         io.disconnect();
-        const v = document.createElement('video');
-        v.setAttribute('controls', '');
-        v.setAttribute('playsinline','');
-        v.setAttribute('preload','metadata');
-        if(item.poster) v.setAttribute('poster', item.poster);
-        v.src = item.src; // 相对路径，如 videos/xxx.mp4
-        player.replaceChild(v, poster);
+        const video = createVideoElement(item, { controls: true, preload: 'metadata' });
+        box.replaceChild(video, placeholder);
       }
     }
-  }, { rootMargin: '160px' });
-  io.observe(card);
+  }, { rootMargin: '180px' });
 
+  io.observe(card);
   return card;
 }
 
-function render(list){
-  const grid = document.getElementById('grid');
-  grid.innerHTML = '';
-  for(const item of list){ grid.appendChild(makeCard(item)); }
+function renderFeature(items) {
+  const feature = document.getElementById('feature');
+  if (!items.length) return;
+
+  const card = document.createElement('div');
+  card.className = 'feature-card';
+
+  const video = createVideoElement(items[0], {
+    controls: true,
+    autoplay: true,
+    preload: 'metadata'
+  });
+  video.className = 'feature-video';
+
+  card.appendChild(video);
+  feature.appendChild(card);
 }
 
-/* 加载清单 → 打乱 → 渲染一次 */
+function renderVideos(items) {
+  const grid = document.getElementById('video-grid');
+  grid.innerHTML = '';
+  for (const item of items.slice(0, MAX_VIDEOS)) {
+    grid.appendChild(makeLazyVideoCard(item));
+  }
+}
+
 loadManifest()
-  .then(list => { render(shuffle(list.slice())); })
+  .then(rawList => {
+    const list = rawList.map(normalizedItem).filter(item => item.src);
+    renderFeature(list.slice(0, FEATURED_COUNT));
+    renderVideos(list);
+  })
   .catch(err => {
-    const grid = document.getElementById('grid');
-    grid.innerHTML = `<p style="opacity:.8;padding:16px">加载清单失败：${err.message}。请确认 manifest.json 已生成并在仓库根目录。</p>`;
+    document.getElementById('video-grid').innerHTML = `
+      <div class="error">
+        ${err.message}。请确认仓库根目录存在 manifest.json，且视频路径类似 videos/xxx.mp4。
+      </div>
+    `;
   });
 </script>
 </body>
