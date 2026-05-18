@@ -18,7 +18,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -31,153 +30,130 @@
 
     a { color: inherit; }
 
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .nav-links a {
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
     .hero {
-      max-width: var(--max);
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: #111827;
+      isolation: isolate;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+      background: #111827;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.44);
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.18) 35%, rgba(0, 0, 0, 0.55) 100%);
+      z-index: -1;
+    }
+
+    .hero-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 5;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 28px;
+      padding: 30px clamp(22px, 5vw, 72px);
+      font-size: clamp(17px, 2vw, 26px);
+      font-weight: 650;
+    }
+
+    .hero-nav a {
+      color: white;
+      text-decoration: none;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+      opacity: 0.95;
+    }
+
+    .hero-nav a:hover { opacity: 1; }
+
+    .hero-nav .code-button {
+      padding: 14px 28px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.96);
+      color: #1f2937;
+      text-shadow: none;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+    }
+
+    .hero-content {
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 64px 20px 36px;
+      padding: 120px 22px 80px;
       text-align: center;
     }
 
-    .kicker {
-      margin: 0 0 12px;
-      color: var(--accent);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    h1 {
-      margin: 0 auto 18px;
-      max-width: 980px;
-      font-size: clamp(36px, 6vw, 70px);
-      line-height: 1.03;
-      letter-spacing: -0.05em;
+    .hero-title {
+      margin: 0 0 18px;
+      font-size: clamp(64px, 12vw, 140px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
       font-weight: 850;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.36);
     }
 
-    .subtitle {
-      max-width: 850px;
-      margin: 0 auto 20px;
-      color: var(--muted);
-      font-size: clamp(17px, 2.2vw, 23px);
-      line-height: 1.45;
+    .hero-subtitle {
+      max-width: 1100px;
+      margin: 0 auto 28px;
+      font-size: clamp(34px, 6vw, 76px);
+      line-height: 1.14;
+      letter-spacing: -0.045em;
+      font-weight: 430;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.36);
     }
 
-    .authors {
-      max-width: 860px;
-      margin: 22px auto 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 6px 14px;
-      color: #374151;
-      font-size: 16px;
-    }
-
-    .authors a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-
-    .authors a:hover { text-decoration: underline; }
-
-    .buttons {
+    .hero-venue {
       margin: 28px auto 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
+      font-size: clamp(22px, 3vw, 38px);
+      font-style: italic;
+      font-weight: 420;
+      color: rgba(255, 255, 255, 0.88);
+      text-shadow: 0 3px 18px rgba(0, 0, 0, 0.35);
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 10px 17px;
-      background: #111827;
-      color: white;
+    .scroll-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.78);
       text-decoration: none;
-      font-weight: 700;
       font-size: 14px;
-      box-shadow: 0 8px 18px rgba(17, 24, 39, 0.18);
-    }
-
-    .button.secondary {
-      background: white;
-      color: #111827;
-      border: 1px solid var(--line);
-      box-shadow: none;
-    }
-
-    .feature {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 10px 20px 36px;
-    }
-
-    .feature-card {
-      overflow: hidden;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      background: #000;
-      box-shadow: var(--shadow);
-    }
-
-    .feature-video {
-      display: block;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      background: #000;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     section {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 48px 20px;
+      padding: 58px 20px;
     }
 
-    section.compact { padding-top: 28px; }
+    section.compact { padding-top: 44px; }
 
     h2 {
       margin: 0 0 22px;
@@ -317,88 +293,64 @@
     }
 
     @media (max-width: 820px) {
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
+      .hero-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        padding: 18px;
+        font-size: 16px;
       }
 
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 2px;
+      .hero-nav .code-button {
+        padding: 9px 18px;
       }
 
-      .hero {
-        padding-top: 42px;
-      }
-
-      .video-grid,
-      .steps {
-        grid-template-columns: 1fr;
-      }
+      .hero-content { padding-top: 120px; }
+      .hero-title { font-size: clamp(48px, 16vw, 82px); }
+      .hero-subtitle { font-size: clamp(28px, 9vw, 48px); }
+      .video-grid, .steps { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="brand">AdaDexTrack</div>
-      <div class="nav-links">
-        <a href="#videos">Videos</a>
-        <a href="#abstract">Abstract</a>
-        <a href="#method">Method</a>
-        <a href="#bibtex">BibTeX</a>
-      </div>
-    </div>
-  </nav>
+  <header class="hero" id="home">
+    <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata"></video>
 
-  <header class="hero">
-    <p class="kicker">Project Page</p>
-    <h1>AdaDexTrack</h1>
-    <p class="subtitle">
-      Adaptive Dexterous Tracking with Expert Policy Rollouts
-    </p>
+    <nav class="hero-nav" aria-label="Project navigation">
+      <a href="#paper">📄 Paper</a>
+      <a href="#arxiv">⚔️ arXiv</a>
+      <a href="#videos">▶️ Video</a>
+      <a class="code-button" href="https://github.com/Janebek/AdaDexTrack" target="_blank" rel="noreferrer">Code</a>
+    </nav>
 
-    <div class="authors">
-      <span>Your Name</span>
-      <span>·</span>
-      <span>Your Lab / Institution</span>
+    <div class="hero-content">
+      <h1 class="hero-title">AdaDexTrack</h1>
+      <p class="hero-subtitle">Adaptive Dexterous Tracking with Expert Policy Rollouts</p>
+      <p class="hero-venue">Project Page</p>
     </div>
 
-    <div class="buttons">
-      <a class="button" href="#videos">Videos</a>
-      <a class="button secondary" href="https://github.com/Janebek/AdaDexTrack" target="_blank" rel="noreferrer">Code</a>
-      <a class="button secondary" href="#bibtex">BibTeX</a>
-    </div>
+    <a class="scroll-cue" href="#videos">Scroll</a>
   </header>
-
-  <div class="feature" id="feature"></div>
 
   <section id="videos" class="compact">
     <h2>Expert Policy Rollouts</h2>
     <p class="section-lead">
-      Demonstrations are loaded from <code>manifest.json</code>. Add or remove videos in <code>videos/</code>, then GitHub Actions can regenerate the list.
+      Demonstrations are loaded from <code>manifest.json</code>. The first valid video is also used as the animated cover unless you set a custom cover path in the script.
     </p>
     <div class="video-grid" id="video-grid"></div>
   </section>
 
-  <section id="abstract">
+  <section id="paper">
     <h2>Abstract</h2>
     <div class="text-card">
-      <p>
-        Replace this paragraph with the real abstract of AdaDexTrack. Keep it concise: describe the problem, the core method, and the main result.
-      </p>
-      <p>
-        This template is intentionally close to a robotics paper project page: title, author block, action buttons, video demonstrations, method summary, and citation block.
-      </p>
+      <p>Replace this paragraph with the real abstract of AdaDexTrack. Keep it concise: describe the problem, the core method, and the main result.</p>
+      <p>This version uses a fullscreen autoplay video as the landing cover, similar to a modern robotics project page.</p>
     </div>
   </section>
 
-  <section id="method">
+  <section id="arxiv">
     <h2>Method</h2>
-    <p class="section-lead">
-      Replace these four cards with the actual pipeline of your project.
-    </p>
+    <p class="section-lead">Replace these four cards with the actual pipeline of your project.</p>
     <div class="steps">
       <article class="step">
         <div class="step-number">1</div>
@@ -433,13 +385,11 @@
 }</code></pre>
   </section>
 
-  <footer>
-    Page style adapted for a clean robotics project homepage. Replace placeholder text before publishing.
-  </footer>
+  <footer>Replace placeholder text and links before publishing.</footer>
 
 <script>
-const FEATURED_COUNT = 1;
-const MAX_VIDEOS = Infinity; // 改成 12、20 等数字可以限制展示数量
+const HERO_VIDEO_SRC = '';
+const MAX_VIDEOS = Infinity;
 
 async function loadManifest() {
   const res = await fetch('manifest.json', { cache: 'no-store' });
@@ -449,11 +399,15 @@ async function loadManifest() {
 
 function cleanTitle(item) {
   const raw = item.title || item.file || item.src || 'Demo';
-  const filename = raw.split('/').pop().replace(/\.[^.]+$/, '');
+  const baseName = raw.split('/').pop();
+  const dotIndex = baseName.lastIndexOf('.');
+  const filename = dotIndex > 0 ? baseName.slice(0, dotIndex) : baseName;
   return filename
     .replace(/^IMG[_-]?/i, 'Demo ')
     .replace(/[_-]+/g, ' ')
-    .replace(/\s+/g, ' ')
+    .split(' ')
+    .filter(Boolean)
+    .join(' ')
     .trim();
 }
 
@@ -466,6 +420,22 @@ function normalizedItem(item) {
     src: item.src || item.url || item.file,
     title: cleanTitle(item)
   };
+}
+
+function setupHeroVideo(items) {
+  const heroVideo = document.getElementById('hero-video');
+  const coverSrc = HERO_VIDEO_SRC || (items[0] && items[0].src);
+  if (!coverSrc) return;
+
+  heroVideo.src = coverSrc;
+  heroVideo.muted = true;
+  heroVideo.loop = true;
+  heroVideo.playsInline = true;
+
+  const playPromise = heroVideo.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(() => {});
+  }
 }
 
 function createVideoElement(item, options = {}) {
@@ -529,24 +499,6 @@ function makeLazyVideoCard(item) {
   return card;
 }
 
-function renderFeature(items) {
-  const feature = document.getElementById('feature');
-  if (!items.length) return;
-
-  const card = document.createElement('div');
-  card.className = 'feature-card';
-
-  const video = createVideoElement(items[0], {
-    controls: true,
-    autoplay: true,
-    preload: 'metadata'
-  });
-  video.className = 'feature-video';
-
-  card.appendChild(video);
-  feature.appendChild(card);
-}
-
 function renderVideos(items) {
   const grid = document.getElementById('video-grid');
   grid.innerHTML = '';
@@ -558,15 +510,11 @@ function renderVideos(items) {
 loadManifest()
   .then(rawList => {
     const list = rawList.map(normalizedItem).filter(item => item.src);
-    renderFeature(list.slice(0, FEATURED_COUNT));
+    setupHeroVideo(list);
     renderVideos(list);
   })
   .catch(err => {
-    document.getElementById('video-grid').innerHTML = `
-      <div class="error">
-        ${err.message}。请确认仓库根目录存在 manifest.json，且视频路径类似 videos/xxx.mp4。
-      </div>
-    `;
+    document.getElementById('video-grid').innerHTML = '<div class="error">' + err.message + '。请确认仓库根目录存在 manifest.json，且视频路径类似 videos/xxx.mp4。</div>';
   });
 </script>
 </body>
