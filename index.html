@@ -196,36 +196,31 @@
 
     .tracking-grid {
       display: grid;
-      gap: 24px;
+      gap: 64px;
     }
 
     .tracking-row {
       display: grid;
-      grid-template-columns: 1fr 1.25fr 1.25fr;
-      gap: 18px;
-      align-items: stretch;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: #fff;
-      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+      grid-template-columns: 0.8fr 1.35fr 1.35fr;
+      gap: 32px;
+      align-items: center;
+      background: transparent;
     }
 
     .prompt-cell {
+      min-height: 160px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 160px;
-      padding: 18px;
-      border-radius: 16px;
-      background: var(--soft);
-      border: 1px solid var(--line);
+      padding: 0 10px;
+      background: transparent;
+      border: 0;
     }
 
     .prompt-label {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -234,23 +229,24 @@
     .prompt-text {
       margin: 0;
       color: #111827;
-      font-size: 20px;
+      font-size: 21px;
       line-height: 1.45;
-      font-weight: 650;
+      font-weight: 500;
     }
 
     .video-card {
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: white;
-      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+      overflow: visible;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .video-box {
       position: relative;
       aspect-ratio: 16 / 9;
       background: #000;
+      overflow: hidden;
     }
 
     .video-box video,
@@ -263,9 +259,16 @@
     }
 
     .caption {
-      padding: 13px 15px 15px;
+      padding: 16px 0 0;
       text-align: center;
-      font-weight: 750;
+      font-size: 22px;
+      line-height: 1.3;
+      font-weight: 400;
+      color: #374151;
+    }
+
+    .caption strong {
+      font-weight: 800;
       color: #111827;
     }
 
@@ -546,7 +549,7 @@ function makeLazyVideoCard(item, label) {
 
       const caption = document.createElement('div');
       caption.className = 'caption';
-      caption.textContent = label;
+      caption.innerHTML = label;
 
       card.appendChild(box);
       card.appendChild(caption);
@@ -585,7 +588,7 @@ function makeLazyVideoCard(item, label) {
 
       const promptCell = document.createElement('div');
       promptCell.className = 'prompt-cell';
-      promptCell.innerHTML = '<div class="prompt-label">Text Input</div><p class="prompt-text">"' + prompt + '"</p>';
+      promptCell.innerHTML = '<div class="prompt-label">Language Instruction</div><p class="prompt-text">"' + prompt + '"</p>';
 
       row.appendChild(promptCell);
       row.appendChild(makeLazyVideoCard(withModulatorItem, 'w/ Modulator'));
