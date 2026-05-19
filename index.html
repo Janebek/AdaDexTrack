@@ -194,10 +194,49 @@
       font-size: 17px;
     }
 
-    .video-grid {
+    .tracking-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      gap: 24px;
+    }
+
+    .tracking-row {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr 1.25fr;
+      gap: 18px;
+      align-items: stretch;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    .prompt-cell {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 160px;
+      padding: 18px;
+      border-radius: 16px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+    }
+
+    .prompt-label {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .prompt-text {
+      margin: 0;
+      color: #111827;
+      font-size: 20px;
+      line-height: 1.45;
+      font-weight: 650;
     }
 
     .video-card {
@@ -331,7 +370,10 @@
       .hero-venue {
         font-size: 1.5rem;
       }
-      .video-grid, .steps { grid-template-columns: 1fr; }
+      .tracking-row,
+      .steps {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -359,11 +401,8 @@
   </header>
 
   <section id="videos" class="compact">
-    <h2>Expert Policy Rollouts</h2>
-    <p class="section-lead">
-      Demonstrations are loaded from <code>manifest.json</code>. The first valid video is also used as the animated cover unless you set a custom cover path in the script.
-    </p>
-    <div class="video-grid" id="video-grid"></div>
+    <h2>Autonomous Manipulation Tracking</h2>
+    <div class="tracking-grid" id="tracking-grid"></div>
   </section>
 
   <section id="paper">
@@ -481,57 +520,92 @@ function createVideoElement(item, options = {}) {
   return video;
 }
 
-function makeLazyVideoCard(item) {
-  const card = document.createElement('article');
-  card.className = 'video-card';
+function makeLazyVideoCard(item, label) {
+      const card = document.createElement('article');
+      card.className = 'video-card';
 
-  const box = document.createElement('div');
-  box.className = 'video-box';
+      const box = document.createElement('div');
+      box.className = 'video-box';
 
-  let placeholder;
-  if (item.poster) {
-    placeholder = document.createElement('img');
-    placeholder.src = item.poster;
-    placeholder.alt = item.title;
-    placeholder.loading = 'lazy';
-    placeholder.decoding = 'async';
-  } else {
-    placeholder = document.createElement('div');
-    placeholder.style.width = '100%';
-    placeholder.style.height = '100%';
-    placeholder.style.background = '#000';
-  }
+      let placeholder;
 
-  box.appendChild(placeholder);
+      if (item && item.poster) {
+        placeholder = document.createElement('img');
+        placeholder.src = item.poster;
+        placeholder.alt = label;
+        placeholder.loading = 'lazy';
+        placeholder.decoding = 'async';
+      } else {
+        placeholder = document.createElement('div');
+        placeholder.style.width = '100%';
+        placeholder.style.height = '100%';
+        placeholder.style.background = '#000';
+      }
 
-  const caption = document.createElement('div');
-  caption.className = 'caption';
-  caption.textContent = item.title;
+      box.appendChild(placeholder);
 
-  card.appendChild(box);
-  card.appendChild(caption);
+      const caption = document.createElement('div');
+      caption.className = 'caption';
+      caption.textContent = label;
 
-  const io = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        io.disconnect();
-        const video = createVideoElement(item, { controls: true, preload: 'metadata' });
-        box.replaceChild(video, placeholder);
+      card.appendChild(box);
+      card.appendChild(caption);
+
+      if (!item || !item.src) {
+        return card;
+      }
+
+      const io = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            io.disconnect();
+
+            const video = createVideoElement(item, {
+              controls: true,
+              preload: 'metadata'
+            });
+
+            box.replaceChild(video, placeholder);
+          }
+        }
+      }, {
+        rootMargin: '180px'
+      });
+
+      io.observe(card);
+
+      return card;
+    }
+
+    const TRACKING_PROMPTS = Array.from({ length: 20 }, () => 'bla bla');
+
+    function makeTrackingRow(prompt, withModulatorItem, withoutModulatorItem) {
+      const row = document.createElement('article');
+      row.className = 'tracking-row';
+
+      const promptCell = document.createElement('div');
+      promptCell.className = 'prompt-cell';
+      promptCell.innerHTML = '<div class="prompt-label">Text Input</div><p class="prompt-text">"' + prompt + '"</p>';
+
+      row.appendChild(promptCell);
+      row.appendChild(makeLazyVideoCard(withModulatorItem, 'w/ Modulator'));
+      row.appendChild(makeLazyVideoCard(withoutModulatorItem, 'w/o Modulator'));
+
+      return row;
+    }
+
+    function renderVideos(items) {
+      const grid = document.getElementById('tracking-grid');
+      grid.innerHTML = '';
+
+      const rowCount = Math.min(TRACKING_PROMPTS.length, Math.ceil(items.length / 2));
+
+      for (let i = 0; i < rowCount; i++) {
+        const withModulatorItem = items[i * 2];
+        const withoutModulatorItem = items[i * 2 + 1];
+        grid.appendChild(makeTrackingRow(TRACKING_PROMPTS[i], withModulatorItem, withoutModulatorItem));
       }
     }
-  }, { rootMargin: '180px' });
-
-  io.observe(card);
-  return card;
-}
-
-function renderVideos(items) {
-  const grid = document.getElementById('video-grid');
-  grid.innerHTML = '';
-  for (const item of items.slice(0, MAX_VIDEOS)) {
-    grid.appendChild(makeLazyVideoCard(item));
-  }
-}
 
 loadManifest()
   .then(rawList => {
