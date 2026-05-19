@@ -177,17 +177,12 @@
     }
 
     .tracking-heading-row {
-      display: grid;
-      grid-template-columns: 0.9fr 1.45fr 1.45fr;
-      gap: 36px;
-      align-items: end;
       margin-bottom: 48px;
     }
 
     .tracking-heading-row h2 {
-      grid-column: 2 / 4;
       margin: 0;
-      text-align: center;
+      text-align: left;
       font-size: clamp(38px, 4.8vw, 60px);
       line-height: 1.08;
     }
@@ -403,7 +398,7 @@
       }
 
       .tracking-heading-row h2 {
-        grid-column: 1;
+        text-align: left;
       }
     }
   </style>
@@ -433,7 +428,6 @@
 
   <section id="videos" class="compact">
     <div class="tracking-heading-row">
-      <div></div>
       <h2>Autonomous Manipulation Tracking</h2>
     </div>
     <div class="tracking-grid" id="tracking-grid"></div>
