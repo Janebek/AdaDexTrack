@@ -1,549 +1,3 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AdaDexTrack: Dynamic Modulation for Adaptive and Generalizable Dexterous Manipulation Tracking</title>
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <style>
-    :root {
-      --text: #1f2937;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --bg: #ffffff;
-      --soft: #f8fafc;
-      --accent: #2563eb;
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-      --max: 1080px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: "Noto Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.65;
-    }
-
-    a { color: inherit; }
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      color: white;
-      background: #111827;
-      isolation: isolate;
-    }
-
-    .hero-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -3;
-      background: #111827;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.44);
-      z-index: -2;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.18) 35%, rgba(0, 0, 0, 0.55) 100%);
-      z-index: -1;
-    }
-
-    .hero-nav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 5;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 28px;
-      padding: 30px clamp(22px, 5vw, 72px);
-      font-size: clamp(17px, 2vw, 26px);
-      font-weight: 650;
-    }
-
-    .hero-nav a {
-      color: white;
-      text-decoration: none;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-      opacity: 0.95;
-    }
-
-    .hero-nav a:hover { opacity: 1; }
-
-    .hero-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-    }
-
-    .nav-icon {
-      width: 34px;
-      height: 34px;
-      object-fit: contain;
-      display: inline-block;
-      flex: 0 0 auto;
-    }
-
-    .hero-nav .code-button {
-      padding: 14px 28px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.96);
-      color: #1f2937;
-      text-shadow: none;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
-    }
-
-    .hero-content {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 120px 22px 80px;
-      text-align: center;
-    }
-
-    .hero-title {
-      margin: 0 0 18px;
-      font-family: "Google Sans", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
-      font-size: 6rem;
-      line-height: 1.02;
-      letter-spacing: -0.055em;
-      font-weight: 850;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.36);
-    }
-
-    .hero-subtitle {
-      max-width: 1500px;
-      margin: 0 auto 28px;
-      font-family: "Google Sans", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
-      font-size: 4rem;
-      line-height: 1.12;
-      letter-spacing: -0.045em;
-      font-weight: 430;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.36);
-    }
-
-    .hero-venue {
-      margin: 28px auto 0;
-      font-size: 2rem;
-      font-style: italic;
-      font-weight: 420;
-      color: rgba(255, 255, 255, 0.88);
-      text-shadow: 0 3px 18px rgba(0, 0, 0, 0.35);
-    }
-
-    .scroll-cue {
-      position: absolute;
-      left: 50%;
-      bottom: 24px;
-      transform: translateX(-50%);
-      color: rgba(255, 255, 255, 0.78);
-      text-decoration: none;
-      font-size: 14px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 58px 20px;
-    }
-
-    #videos {
-      max-width: 1560px;
-      padding-left: 32px;
-      padding-right: 32px;
-    }
-
-    .tracking-heading-row {
-      margin-bottom: 48px;
-    }
-
-    .tracking-heading-row h2 {
-      margin: 0;
-      text-align: center;
-      font-size: clamp(38px, 4.8vw, 60px);
-      line-height: 1.08;
-    }
-
-    section.compact { padding-top: 44px; }
-
-    h2 {
-      margin: 0 0 22px;
-      font-size: clamp(26px, 4vw, 42px);
-      line-height: 1.1;
-      letter-spacing: -0.035em;
-      text-align: center;
-    }
-
-    h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-      line-height: 1.35;
-    }
-
-    .section-lead {
-      max-width: 780px;
-      margin: -8px auto 28px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 17px;
-    }
-
-    .tracking-grid {
-      display: grid;
-      gap: 64px;
-    }
-
-    .tracking-row {
-      display: grid;
-      grid-template-columns: 0.9fr 1.45fr 1.45fr;
-      gap: 36px;
-      align-items: start;
-      background: transparent;
-    }
-
-    .prompt-cell {
-      min-height: 160px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 0 10px;
-      background: transparent;
-      border: 0;
-    }
-
-    .prompt-label {
-      margin-bottom: 12px;
-      color: var(--muted);
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .prompt-text {
-      margin: 0;
-      color: #111827;
-      font-size: 18px;
-      line-height: 1.45;
-      font-weight: 500;
-    }
-
-    .video-card {
-      overflow: visible;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
-    }
-
-    .video-box {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      background: #000;
-      overflow: hidden;
-      border-radius: 10px;
-    }
-
-    .video-box video,
-    .video-box img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: 0;
-    }
-
-    .caption {
-      padding: 16px 0 0;
-      text-align: center;
-      font-size: 22px;
-      line-height: 1.3;
-      font-weight: 400;
-      color: #374151;
-    }
-
-    .caption strong {
-      font-weight: 800;
-      color: #111827;
-    }
-
-    .text-card {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0;
-      border-radius: 0;
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-      text-align: justify;
-    }
-
-    .text-card p {
-      margin: 0 0 18px;
-      color: #374151;
-      font-size: 16px;
-      line-height: 1.58;
-    }
-
-    .text-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .method-content {
-      max-width: 1120px;
-      margin: 0 auto;
-      color: #374151;
-      font-size: 16px;
-      line-height: 1.58;
-    }
-
-    .method-content ol {
-      margin: 18px 0 0 28px;
-      padding: 0;
-    }
-
-    .method-content li {
-      margin: 7px 0;
-    }
-
-    .method-figure {
-      margin: 40px 0 0;
-      width: min(80vw, 1220px);
-      max-width: none;
-      margin-left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-    }
-
-    .method-figure img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .method-content strong {
-      color: #1f2937;
-    }
-
-    .step {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: white;
-      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
-    }
-
-    .step-number {
-      width: 32px;
-      height: 32px;
-      display: inline-grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #eff6ff;
-      color: var(--accent);
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    pre {
-      margin: 0 auto;
-      overflow-x: auto;
-      padding: 28px 32px;
-      border-radius: 0;
-      border: 0;
-      background: #f5f5f5;
-      color: #374151;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 14px;
-      line-height: 1.7;
-      white-space: pre;
-    }
-
-    #bibtex {
-      max-width: 1560px;
-    }
-
-    #bibtex h2 {
-      text-align: left;
-      font-family: Castoro, Georgia, "Times New Roman", serif;
-      font-size: 34px;
-      font-weight: 400;
-      letter-spacing: 0;
-      margin-bottom: 22px;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 26px 20px 42px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .error {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 18px 20px;
-      border: 1px solid #fecaca;
-      background: #fef2f2;
-      color: #991b1b;
-      border-radius: 16px;
-    }
-
-    @media (max-width: 820px) {
-      .hero-nav {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 14px;
-        padding: 18px;
-        font-size: 16px;
-      }
-
-      .hero-nav .code-button {
-        padding: 9px 18px;
-      }
-
-      .hero-content { padding-top: 120px; }
-      .hero-title {
-        font-size: 3rem;
-      }
-
-      .hero-subtitle,
-      .hero-venue {
-        font-size: 1.5rem;
-      }
-      .tracking-heading-row,
-      .tracking-row,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .tracking-heading-row h2 {
-        text-align: center;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header class="hero" id="home">
-    <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata"></video>
-
-    <nav class="hero-nav" aria-label="Project navigation">
-      <a class="hero-link" href="static/_CVPR26__AdaDexTrack.pdf" target="_blank" rel="noreferrer" aria-label="Paper">
-        <img class="nav-icon" src="static/icons/pdf.svg" alt="PDF">
-        <span>Paper</span>
-      </a>
-      <a class="hero-link" href="#arxiv" aria-label="arXiv">
-        <img class="nav-icon" src="static/icons/arxiv.svg" alt="ArXiv">
-        <span>arXiv</span>
-      </a>
-      <a class="hero-link" href="#videos" aria-label="Video">
-        <img class="nav-icon" src="static/icons/youtube.svg" alt="YouTube">
-        <span>Video</span>
-      </a>
-      <a class="code-button" href="https://github.com/Janebek/AdaDexTrack" target="_blank" rel="noreferrer">Code</a>
-    </nav>
-
-    <div class="hero-content">
-      <h1 class="hero-title">AdaDexTrack</h1>
-      <p class="hero-subtitle">Dynamic Modulation for Adaptive and Generalizable Dexterous Manipulation Tracking</p>
-    </div>
-  </header>
-
-  <section id="videos" class="compact">
-    <div class="tracking-heading-row">
-      <h2>Autonomous Dexterous Manipulation Tracking</h2>
-    </div>
-    <div class="tracking-grid" id="tracking-grid"></div>
-  </section>
-
-  <section id="paper">
-    <h2>Abstract</h2>
-    <div class="text-card">
-      <p>
-        Language is a natural way to command robots, but converting a single instruction into a long-horizon, contact-rich hand–object interaction remains challenging: synthesized references are noisy, human-to-robot retargeting introduces embodiment bias, and fixed-reference tracking lets small errors snowball. We address this with AdaDexTrack, a modulator-in-the-loop framework for language-conditioned manipulation tracking. A distilled generalist tracker serves as the skill carrier, while a tightly aligned modulator performs three feedback corrections: reference modulation (continual adjustment of what to track), object-latent modulation (online adaptation of the object representation to recruit suitable skills), and positional-target modulation (small state-dependent refinements for execution).
-      </p>
-      <p>
-        The tracker is learned via large-scale specialist to generalist distillation on a corpus of language-conditioned hand–object trajectories; the modulator is trained with RL under the same task objective, ensuring tight coupling. Across large-scale evaluations, AdaDexTrack consistently outperforms prior SOTA on unseen-trajectory and unseen-object sets in both average tracking error and success rate, demonstrating robustness and generalization. We further show zero-shot sim-to-real transfer on real hardware, where adding the modulator yields substantial gains over a tracker-only variant. AdaDexTrack reframes language-conditioned dexterous manipulation as modulated tracking, replacing the open-loop, fixed-reference tracking with in-loop modulation that adjusts the reference, object latent, and positional target, yielding drift-resistant execution from noisy text references.
-      </p>
-    </div>
-  </section>
-
-  <section id="arxiv">
-    <h2>Method</h2>
-    <div class="method-content">
-      <p>
-        There are four steps within the <strong>AdaDexTrack</strong> framework:
-      </p>
-      <ol>
-        <li>
-          <strong>Text-to-Motion and Retargeting:</strong><br>
-          We generate language-conditioned hand–object references from text prompts and retarget them to the robot arm–hand kinematic chain.
-        </li>
-        <li>
-          <strong>Generalist Tracker Training:</strong><br>
-          We train many specialist tracking policies on the retargeted references, then distill them into a single generalist tracker.
-        </li>
-        <li>
-          <strong>In-Loop Modulation:</strong><br>
-          A modulator improves tracking online through reference modulation, object-latent modulation, and positional-target modulation.
-        </li>
-        <li>
-          <strong>Real-World Deployment:</strong><br>
-          The learned policy performs zero-shot sim-to-real transfer on real hardware and improves long-horizon execution on unseen trajectories and unseen objects.
-        </li>
-      </ol>
-
-      <div class="method-figure">
-        <img src="static/method.jpg" alt="AdaDexTrack method pipeline">
-      </div>
-    </div>
-  </section>
-
-  <section id="bibtex">
-    <h2>BibTeX</h2>
-    <pre><code>@inproceedings{adalibieke2026adadextrack,
-  title     = {AdaDexTrack: Dynamic Modulation for Adaptive and Generalizable Dexterous Manipulation Tracking},
-  author    = {Adalibieke, Jianibieke and Han, Qianwei and Liu, Xueyi and Qin, Yuzhe and Yi, Li},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year      = {2026},
-  url       = {https://janebek.github.io/AdaDexTrack/}
-}</code></pre>
-  </section>
-
-  <footer>Replace placeholder text and links before publishing.</footer>
-
-<script>
 const HERO_VIDEO_SRC = '';
 const MAX_VIDEOS = Infinity;
 
@@ -553,34 +7,9 @@ async function loadManifest() {
   return res.json();
 }
 
-function cleanTitle(item) {
-  const raw = item.title || item.file || item.src || 'Demo';
-  const baseName = raw.split('/').pop();
-  const dotIndex = baseName.lastIndexOf('.');
-  const filename = dotIndex > 0 ? baseName.slice(0, dotIndex) : baseName;
-  return filename
-    .replace(/^IMG[_-]?/i, 'Demo ')
-    .replace(/[_-]+/g, ' ')
-    .split(' ')
-    .filter(Boolean)
-    .join(' ')
-    .trim();
-}
-
-function normalizedItem(item) {
-  if (typeof item === 'string') {
-    return { src: item, title: cleanTitle({ src: item }) };
-  }
-  return {
-    ...item,
-    src: item.src || item.url || item.file,
-    title: cleanTitle(item)
-  };
-}
-
 function setupHeroVideo(items) {
   const heroVideo = document.getElementById('hero-video');
-  const coverSrc = HERO_VIDEO_SRC || (items[0] && items[0].src);
+  const coverSrc = HERO_VIDEO_SRC || (items[0] && items[0].with_modulator);
   if (!coverSrc) return;
 
   heroVideo.src = coverSrc;
@@ -594,13 +23,12 @@ function setupHeroVideo(items) {
   }
 }
 
-function createVideoElement(item, options = {}) {
+function createVideoElement(src, options = {}) {
   const video = document.createElement('video');
-  video.src = item.src;
+  video.src = src;
   video.controls = options.controls ?? true;
   video.playsInline = true;
   video.preload = options.preload || 'metadata';
-  if (item.poster) video.poster = item.poster;
 
   if (options.autoplay) {
     video.autoplay = true;
@@ -611,102 +39,82 @@ function createVideoElement(item, options = {}) {
   return video;
 }
 
-function makeLazyVideoCard(item, label) {
-      const card = document.createElement('article');
-      card.className = 'video-card';
+function makeLazyVideoCard(src, label) {
+  const card = document.createElement('article');
+  card.className = 'video-card';
 
-      const box = document.createElement('div');
-      box.className = 'video-box';
+  const box = document.createElement('div');
+  box.className = 'video-box';
 
-      let placeholder;
+  const placeholder = document.createElement('div');
+  placeholder.style.width = '100%';
+  placeholder.style.height = '100%';
+  placeholder.style.background = '#000';
 
-      if (item && item.poster) {
-        placeholder = document.createElement('img');
-        placeholder.src = item.poster;
-        placeholder.alt = label;
-        placeholder.loading = 'lazy';
-        placeholder.decoding = 'async';
-      } else {
-        placeholder = document.createElement('div');
-        placeholder.style.width = '100%';
-        placeholder.style.height = '100%';
-        placeholder.style.background = '#000';
-      }
+  box.appendChild(placeholder);
 
-      box.appendChild(placeholder);
+  const caption = document.createElement('div');
+  caption.className = 'caption';
+  caption.innerHTML = label;
 
-      const caption = document.createElement('div');
-      caption.className = 'caption';
-      caption.innerHTML = label;
+  card.appendChild(box);
+  card.appendChild(caption);
 
-      card.appendChild(box);
-      card.appendChild(caption);
+  if (!src) return card;
 
-      if (!item || !item.src) {
-        return card;
-      }
-
-      const io = new IntersectionObserver(entries => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            io.disconnect();
-
-            const video = createVideoElement(item, {
-              controls: true,
-              preload: 'metadata'
-            });
-
-            box.replaceChild(video, placeholder);
-          }
-        }
-      }, {
-        rootMargin: '180px'
-      });
-
-      io.observe(card);
-
-      return card;
-    }
-
-    const TRACKING_PROMPTS = Array.from({ length: 20 }, () => 'The person pick up the hammer from the table, uses their right hand to hammer some nails on the wall.');
-
-    function makeTrackingRow(prompt, withModulatorItem, withoutModulatorItem) {
-      const row = document.createElement('article');
-      row.className = 'tracking-row';
-
-      const promptCell = document.createElement('div');
-      promptCell.className = 'prompt-cell';
-      promptCell.innerHTML = '<div class="prompt-label">Language Instruction</div><p class="prompt-text">"' + prompt + '"</p>';
-
-      row.appendChild(promptCell);
-      row.appendChild(makeLazyVideoCard(withModulatorItem, 'w/ Modulator'));
-      row.appendChild(makeLazyVideoCard(withoutModulatorItem, 'w/o Modulator'));
-
-      return row;
-    }
-
-    function renderVideos(items) {
-      const grid = document.getElementById('tracking-grid');
-      grid.innerHTML = '';
-
-      const rowCount = Math.min(TRACKING_PROMPTS.length, Math.ceil(items.length / 2));
-
-      for (let i = 0; i < rowCount; i++) {
-        const withModulatorItem = items[i * 2];
-        const withoutModulatorItem = items[i * 2 + 1];
-        grid.appendChild(makeTrackingRow(TRACKING_PROMPTS[i], withModulatorItem, withoutModulatorItem));
+  const io = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        io.disconnect();
+        const video = createVideoElement(src, {
+          controls: true,
+          preload: 'metadata'
+        });
+        box.replaceChild(video, placeholder);
       }
     }
+  }, {
+    rootMargin: '180px'
+  });
+
+  io.observe(card);
+
+  return card;
+}
+
+function makeTrackingRow(prompt, withModulatorSrc, withoutModulatorSrc) {
+  const row = document.createElement('article');
+  row.className = 'tracking-row';
+
+  const promptCell = document.createElement('div');
+  promptCell.className = 'prompt-cell';
+  promptCell.innerHTML = '<div class="prompt-label">Language Instruction</div><p class="prompt-text">"' + prompt + '"</p>';
+
+  row.appendChild(promptCell);
+  row.appendChild(makeLazyVideoCard(withModulatorSrc, 'w/ Modulator'));
+  row.appendChild(makeLazyVideoCard(withoutModulatorSrc, 'w/o Modulator'));
+
+  return row;
+}
+
+function renderVideos(items) {
+  const grid = document.getElementById('tracking-grid');
+  grid.innerHTML = '';
+
+  items.forEach(item => {
+    // 每一行精准读取 manifest.json 里定义的 prompt 和 两个对应的视频路径
+    grid.appendChild(makeTrackingRow(item.prompt, item.with_modulator, item.without_modulator));
+  });
+}
 
 loadManifest()
-  .then(rawList => {
-    const list = rawList.map(normalizedItem).filter(item => item.src);
+  .then(list => {
     setupHeroVideo(list);
     renderVideos(list);
   })
   .catch(err => {
-    document.getElementById('video-grid').innerHTML = '<div class="error">' + err.message + '。请确认仓库根目录存在 manifest.json，且视频路径类似 videos/xxx.mp4。</div>';
+    const grid = document.getElementById('tracking-grid');
+    if(grid) {
+      grid.innerHTML = '<div class="error">' + err.message + '。请检查 manifest.json 格式是否正确。</div>';
+    }
   });
-</script>
-</body>
-</html>

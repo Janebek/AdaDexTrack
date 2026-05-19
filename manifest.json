@@ -1,206 +1,82 @@
 [
   {
-    "src": "videos/IMG_0007.mp4",
-    "title": "Demo 0007"
+    "prompt": "The robot hand picks up the alarm clock from the table closely.",
+    "with_modulator": "videos/!relpath!alarmclock_m-1.mp4",
+    "without_modulator": "videos/!relpath!alarmclock_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0008.mp4",
-    "title": "Demo 0008"
+    "prompt": "The robot hand picks up and moves the apple smoothly.",
+    "with_modulator": "videos/!relpath!apple_m-1.mp4",
+    "without_modulator": "videos/!relpath!apple_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0011.mp4",
-    "title": "Demo 0011"
+    "prompt": "The robot interacts with the camera controller on the platform.",
+    "with_modulator": "videos/!relpath!camera_m-1.mp4",
+    "without_modulator": "videos/!relpath!camera_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0024.mp4",
-    "title": "Demo 0024"
+    "prompt": "The robot manipulates the cube to complete the rotation task.",
+    "with_modulator": "videos/!relpath!cube_m-1.mp4",
+    "without_modulator": "videos/!relpath!cube_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0045.mp4",
-    "title": "Demo 0045"
+    "prompt": "The robot arm grasps the toy duck and stabilizes it.",
+    "with_modulator": "videos/!relpath!duck_m-1.mp4",
+    "without_modulator": "videos/!relpath!duck_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0096.mp4",
-    "title": "Demo 0096"
+    "prompt": "The robot tracks and controls the elephant toy model.",
+    "with_modulator": "videos/!relpath!elephant_m-1.mp4",
+    "without_modulator": "videos/!relpath!elephant_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0105.mp4",
-    "title": "Demo 0105"
+    "prompt": "The robot hand manipulates the gamecontroller carefully.",
+    "with_modulator": "videos/!relpath!gamecontroller_m-1.mp4",
+    "without_modulator": "videos/!relpath!gamecontroller_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0121.mp4",
-    "title": "Demo 0121"
+    "prompt": "The robot picks up the hammer from the table to hit nails.",
+    "with_modulator": "videos/!relpath!hammer_m-1.mp4",
+    "without_modulator": "videos/!relpath!hammer_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0126.mp4",
-    "title": "Demo 0126"
+    "prompt": "The robot tracks the movement of the smartphone device.",
+    "with_modulator": "videos/!relpath!phone_m-1.mp4",
+    "without_modulator": "videos/!relpath!phone_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0131.mp4",
-    "title": "Demo 0131"
+    "prompt": "The robot hand gently lifts the rabbit toy up.",
+    "with_modulator": "videos/!relpath!rabbit_m-1.mp4",
+    "without_modulator": "videos/!relpath!rabbit_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0134.mp4",
-    "title": "Demo 0134"
+    "prompt": "The robot arm stabilizes the sphere object on the plate.",
+    "with_modulator": "videos/!relpath!sphere_m-1.mp4",
+    "without_modulator": "videos/!relpath!sphere_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0135.mp4",
-    "title": "Demo 0135"
+    "prompt": "The robot hand rotates the torus model continuously.",
+    "with_modulator": "videos/!relpath!torus_m-1.mp4",
+    "without_modulator": "videos/!relpath!torus_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0143.mp4",
-    "title": "Demo 0143"
+    "prompt": "The robot arm tracks and lifts the wrist watch.",
+    "with_modulator": "videos/!relpath!watch_m-1.mp4",
+    "without_modulator": "videos/!relpath!watch_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0145.mp4",
-    "title": "Demo 0145"
+    "prompt": "The robot hand holds and moves the waterbottle.",
+    "with_modulator": "videos/!relpath!waterbottle_m-1.mp4",
+    "without_modulator": "videos/!relpath!waterbottle_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0148.mp4",
-    "title": "Demo 0148"
+    "prompt": "The robot interacts with the wineglass without breaking it.",
+    "with_modulator": "videos/!relpath!wineglass_m-1.mp4",
+    "without_modulator": "videos/!relpath!wineglass_bc-1.mp4"
   },
   {
-    "src": "videos/IMG_0150.mp4",
-    "title": "Demo 0150"
-  },
-  {
-    "src": "videos/IMG_0164.mp4",
-    "title": "Demo 0164"
-  },
-  {
-    "src": "videos/IMG_0166.mp4",
-    "title": "Demo 0166"
-  },
-  {
-    "src": "videos/IMG_0168.mp4",
-    "title": "Demo 0168"
-  },
-  {
-    "src": "videos/IMG_0216.mp4",
-    "title": "Demo 0216"
-  },
-  {
-    "src": "videos/IMG_0238.mp4",
-    "title": "Demo 0238"
-  },
-  {
-    "src": "videos/IMG_0250.mp4",
-    "title": "Demo 0250"
-  },
-  {
-    "src": "videos/IMG_0277.mp4",
-    "title": "Demo 0277"
-  },
-  {
-    "src": "videos/IMG_0289.mp4",
-    "title": "Demo 0289"
-  },
-  {
-    "src": "videos/IMG_0299.mp4",
-    "title": "Demo 0299"
-  },
-  {
-    "src": "videos/IMG_0300.mp4",
-    "title": "Demo 0300"
-  },
-  {
-    "src": "videos/IMG_0306.mp4",
-    "title": "Demo 0306"
-  },
-  {
-    "src": "videos/IMG_0309.mp4",
-    "title": "Demo 0309"
-  },
-  {
-    "src": "videos/IMG_0322.mp4",
-    "title": "Demo 0322"
-  },
-  {
-    "src": "videos/IMG_0324.mp4",
-    "title": "Demo 0324"
-  },
-  {
-    "src": "videos/IMG_0325.mp4",
-    "title": "Demo 0325"
-  },
-  {
-    "src": "videos/IMG_0328.mp4",
-    "title": "Demo 0328"
-  },
-  {
-    "src": "videos/IMG_0329.mp4",
-    "title": "Demo 0329"
-  },
-  {
-    "src": "videos/IMG_0331.mp4",
-    "title": "Demo 0331"
-  },
-  {
-    "src": "videos/IMG_0341.mp4",
-    "title": "Demo 0341"
-  },
-  {
-    "src": "videos/IMG_0344.mp4",
-    "title": "Demo 0344"
-  },
-  {
-    "src": "videos/IMG_9890.mp4",
-    "title": "Demo 9890"
-  },
-  {
-    "src": "videos/IMG_9897.mp4",
-    "title": "Demo 9897"
-  },
-  {
-    "src": "videos/IMG_9898.mp4",
-    "title": "Demo 9898"
-  },
-  {
-    "src": "videos/IMG_9900.mp4",
-    "title": "Demo 9900"
-  },
-  {
-    "src": "videos/IMG_9902.mp4",
-    "title": "Demo 9902"
-  },
-  {
-    "src": "videos/IMG_9911.mp4",
-    "title": "Demo 9911"
-  },
-  {
-    "src": "videos/IMG_9921.mp4",
-    "title": "Demo 9921"
-  },
-  {
-    "src": "videos/IMG_9934.mp4",
-    "title": "Demo 9934"
-  },
-  {
-    "src": "videos/IMG_9952.mp4",
-    "title": "Demo 9952"
-  },
-  {
-    "src": "videos/IMG_9953.mp4",
-    "title": "Demo 9953"
-  },
-  {
-    "src": "videos/IMG_9955.mp4",
-    "title": "Demo 9955"
-  },
-  {
-    "src": "videos/IMG_9968.mp4",
-    "title": "Demo 9968"
-  },
-  {
-    "src": "videos/IMG_9971.mp4",
-    "title": "Demo 9971"
-  },
-  {
-    "src": "videos/IMG_9973.mp4",
-    "title": "Demo 9973"
-  },
-  {
-    "src": "videos/IMG_9977.mp4",
-    "title": "Demo 9977"
+    "prompt": "The robot hand manipulates the customized wyj object.",
+    "with_modulator": "videos/!relpath!wyj_m-1.mp4",
+    "without_modulator": "videos/!relpath!wyj_bc-1.mp4"
   }
 ]
