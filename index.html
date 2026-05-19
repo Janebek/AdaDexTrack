@@ -291,26 +291,46 @@
     }
 
     .text-card {
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 26px;
-      border-radius: 22px;
-      background: var(--soft);
-      border: 1px solid var(--line);
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      text-align: justify;
     }
 
     .text-card p {
-      margin: 0 0 14px;
+      margin: 0 0 22px;
       color: #374151;
+      font-size: 19px;
+      line-height: 1.62;
     }
 
-    .text-card p:last-child { margin-bottom: 0; }
+    .text-card p:last-child {
+      margin-bottom: 0;
+    }
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 22px;
+    .method-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      color: #374151;
+      font-size: 19px;
+      line-height: 1.62;
+    }
+
+    .method-content ol {
+      margin: 18px 0 0 28px;
+      padding: 0;
+    }
+
+    .method-content li {
+      margin: 10px 0;
+    }
+
+    .method-content strong {
+      color: #1f2937;
     }
 
     .step {
@@ -447,28 +467,28 @@
 
   <section id="arxiv">
     <h2>Method</h2>
-    <p class="section-lead">Replace these four cards with the actual pipeline of your project.</p>
-    <div class="steps">
-      <article class="step">
-        <div class="step-number">1</div>
-        <h3>Data / Demonstrations</h3>
-        <p>Collect or retarget demonstrations used for dexterous tracking.</p>
-      </article>
-      <article class="step">
-        <div class="step-number">2</div>
-        <h3>Expert Policy</h3>
-        <p>Train or load the expert policy that produces rollout trajectories.</p>
-      </article>
-      <article class="step">
-        <div class="step-number">3</div>
-        <h3>Tracking</h3>
-        <p>Evaluate tracking behavior across tasks, objects, or environments.</p>
-      </article>
-      <article class="step">
-        <div class="step-number">4</div>
-        <h3>Deployment</h3>
-        <p>Show the policy in simulation or real-world deployment settings.</p>
-      </article>
+    <div class="method-content">
+      <p>
+        There are four steps within the <strong>AdaDexTrack</strong> framework:
+      </p>
+      <ol>
+        <li>
+          <strong>Specialist Tracker Training:</strong><br>
+          We train specialist manipulation trackers on language-conditioned hand–object trajectories to acquire robust tracking behaviors across diverse object interactions.
+        </li>
+        <li>
+          <strong>Generalist Tracker Distillation:</strong><br>
+          Specialist policies are distilled into a generalist tracker that serves as the reusable skill carrier for language-conditioned dexterous manipulation.
+        </li>
+        <li>
+          <strong>Modulator Training:</strong><br>
+          A modulator is trained in the loop with reinforcement learning to adjust the reference, object latent, and positional target under the same task objective.
+        </li>
+        <li>
+          <strong>Deployment:</strong><br>
+          At test time, AdaDexTrack performs adaptive manipulation tracking from noisy language-conditioned references, enabling robust execution on unseen trajectories, unseen objects, and real hardware.
+        </li>
+      </ol>
     </div>
   </section>
 
