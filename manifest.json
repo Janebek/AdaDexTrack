@@ -1,20 +1,5 @@
 [
   {
-    "prompt": "The robot picks up the hammer from the table to hit nails.",
-    "with_modulator": "videos/!relpath!hammer_m-1.mp4",
-    "without_modulator": "videos/!relpath!hammer_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot tracks and controls the elephant toy model.",
-    "with_modulator": "videos/!relpath!elephant_m-1.mp4",
-    "without_modulator": "videos/!relpath!elephant_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot interacts with the wineglass without breaking it.",
-    "with_modulator": "videos/!relpath!wineglass_m-1.mp4",
-    "without_modulator": "videos/!relpath!wineglass_bc-1.mp4"
-  },
-  {
     "prompt": "The robot hand picks up the alarm clock from the table closely.",
     "with_modulator": "videos/!relpath!alarmclock_m-1.mp4",
     "without_modulator": "videos/!relpath!alarmclock_bc-1.mp4"
@@ -40,9 +25,19 @@
     "without_modulator": "videos/!relpath!duck_bc-1.mp4"
   },
   {
+    "prompt": "The robot tracks and controls the elephant toy model.",
+    "with_modulator": "videos/!relpath!elephant_m-1.mp4",
+    "without_modulator": "videos/!relpath!elephant_bc-1.mp4"
+  },
+  {
     "prompt": "The robot hand manipulates the gamecontroller carefully.",
     "with_modulator": "videos/!relpath!gamecontroller_m-1.mp4",
     "without_modulator": "videos/!relpath!gamecontroller_bc-1.mp4"
+  },
+  {
+    "prompt": "The robot picks up the hammer from the table to hit nails.",
+    "with_modulator": "videos/!relpath!hammer_m-1.mp4",
+    "without_modulator": "videos/!relpath!hammer_bc-1.mp4"
   },
   {
     "prompt": "The robot tracks the movement of the smartphone device.",
@@ -73,6 +68,11 @@
     "prompt": "The robot hand holds and moves the waterbottle.",
     "with_modulator": "videos/!relpath!waterbottle_m-1.mp4",
     "without_modulator": "videos/!relpath!waterbottle_bc-1.mp4"
+  },
+  {
+    "prompt": "The robot interacts with the wineglass without breaking it.",
+    "with_modulator": "videos/!relpath!wineglass_m-1.mp4",
+    "without_modulator": "videos/!relpath!wineglass_bc-1.mp4"
   },
   {
     "prompt": "The robot hand manipulates the customized wyj object.",
