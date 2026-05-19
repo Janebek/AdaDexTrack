@@ -436,8 +436,12 @@
   <section id="paper">
     <h2>Abstract</h2>
     <div class="text-card">
-      <p>Replace this paragraph with the real abstract of AdaDexTrack. Keep it concise: describe the problem, the core method, and the main result.</p>
-      <p>This version uses a fullscreen autoplay video as the landing cover, similar to a modern robotics project page.</p>
+      <p>
+        Language is a natural way to command robots, but converting a single instruction into a long-horizon, contact-rich hand–object interaction remains challenging: synthesized references are noisy, human-to-robot retargeting introduces embodiment bias, and fixed-reference tracking lets small errors snowball. We address this with AdaDexTrack, a modulator-in-the-loop framework for language-conditioned manipulation tracking. A distilled generalist tracker serves as the skill carrier, while a tightly aligned modulator performs three feedback corrections: reference modulation (continual adjustment of what to track), object-latent modulation (online adaptation of the object representation to recruit suitable skills), and positional-target modulation (small state-dependent refinements for execution).
+      </p>
+      <p>
+        The tracker is learned via large-scale specialist to generalist distillation on a corpus of language-conditioned hand–object trajectories; the modulator is trained with RL under the same task objective, ensuring tight coupling. Across large-scale evaluations, AdaDexTrack consistently outperforms prior SOTA on unseen-trajectory and unseen-object sets in both average tracking error and success rate, demonstrating robustness and generalization. We further show zero-shot sim-to-real transfer on real hardware, where adding the modulator yields substantial gains over a tracker-only variant. AdaDexTrack reframes language-conditioned dexterous manipulation as modulated tracking, replacing the open-loop, fixed-reference tracking with in-loop modulation that adjusts the reference, object latent, and positional target, yielding drift-resistant execution from noisy text references.
+      </p>
     </div>
   </section>
 
