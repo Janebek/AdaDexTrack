@@ -74,7 +74,6 @@
     "with_modulator": "videos/!relpath!waterbottle_m-1.mp4",
     "without_modulator": "videos/!relpath!waterbottle_bc-1.mp4"
   },
-
   {
     "prompt": "The robot hand manipulates the customized wyj object.",
     "with_modulator": "videos/!relpath!wyj_m-1.mp4",
