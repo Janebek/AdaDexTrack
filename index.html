@@ -176,6 +176,20 @@
       padding-right: 32px;
     }
 
+    .tracking-heading-row {
+      display: grid;
+      grid-template-columns: 0.65fr 1.55fr 1.55fr;
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .tracking-heading-row h2 {
+      grid-column: 2 / 4;
+      margin: 0;
+      text-align: center;
+    }
+
     section.compact { padding-top: 44px; }
 
     h2 {
@@ -209,7 +223,7 @@
       display: grid;
       grid-template-columns: 0.65fr 1.55fr 1.55fr;
       gap: 36px;
-      align-items: center;
+      align-items: start;
       background: transparent;
     }
 
@@ -217,7 +231,7 @@
       min-height: 160px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       padding: 0 10px;
       background: transparent;
       border: 0;
@@ -380,9 +394,14 @@
       .hero-venue {
         font-size: 1.5rem;
       }
+      .tracking-heading-row,
       .tracking-row,
       .steps {
         grid-template-columns: 1fr;
+      }
+
+      .tracking-heading-row h2 {
+        grid-column: 1;
       }
     }
   </style>
@@ -411,7 +430,10 @@
   </header>
 
   <section id="videos" class="compact">
-    <h2>Autonomous Manipulation Tracking</h2>
+    <div class="tracking-heading-row">
+      <div></div>
+      <h2>Autonomous Manipulation Tracking</h2>
+    </div>
     <div class="tracking-grid" id="tracking-grid"></div>
   </section>
 
