@@ -469,27 +469,24 @@
     <h2>Method</h2>
     <div class="method-content">
       <p>
-        AdaDexTrack addresses long-horizon drift caused by noisy text-generated references and human-to-robot embodiment mismatch. Instead of forcing a tracker to follow a fixed reference open-loop, the framework closes the loop by modulating what the tracker sees and executes.
-      </p>
-      <p>
-        The system contains two coupled components: a distilled generalist tracking policy that acts as the skill carrier, and an in-loop modulation policy that performs reference modulation, object-latent modulation, and positional-target modulation.
+        There are four steps within the <strong>AdaDexTrack</strong> framework:
       </p>
       <ol>
         <li>
-          <strong>Language-Guided HOI Reference Generation:</strong><br>
-          AdaDexTrack uses text-guided hand–object interaction references generated from natural-language prompts. The reference dataset is expanded through paraphrase augmentation and then retargeted from human–object motion to the robot arm–hand kinematic chain.
+          <strong>Text-to-Motion and Retargeting:</strong><br>
+          We generate language-conditioned hand–object references from text prompts and retarget them to the robot arm–hand kinematic chain.
         </li>
         <li>
-          <strong>Specialist-to-Generalist Tracker Distillation:</strong><br>
-          For each retargeted reference, a specialist tracking controller is trained with reinforcement learning to minimize the discrepancy between the robot state and the reference. Successful specialist rollouts are then distilled into a single generalist tracker through behavior cloning, yielding a reusable skill carrier for diverse language-conditioned manipulation trajectories.
+          <strong>Generalist Tracker Training:</strong><br>
+          We train many specialist tracking policies on the retargeted references, then distill successful rollouts into a single generalist tracker.
         </li>
         <li>
-          <strong>In-Loop Tracking Modulator:</strong><br>
-          On top of the generalist tracker, AdaDexTrack inserts a modulator that corrects tracking online. Reference modulation continually adjusts near-future references, object-latent modulation adapts the object representation to recruit suitable skills, and positional-target modulation applies small state-dependent refinements to improve execution.
+          <strong>In-Loop Modulation:</strong><br>
+          A modulator improves tracking online through reference modulation, object-latent modulation, and positional-target modulation.
         </li>
         <li>
-          <strong>Zero-Shot Sim-to-Real Transfer:</strong><br>
-          The policy is trained in simulation and transferred to real hardware with system identification and domain randomization. In the real-world setup, AdaDexTrack uses an xArm6 with a LEAP Hand and object pose estimation for closed-loop language-guided manipulation tracking.
+          <strong>Real-World Deployment:</strong><br>
+          The learned policy transfers zero-shot to real hardware, where the modulator helps reduce drift and improve long-horizon execution.
         </li>
       </ol>
     </div>
