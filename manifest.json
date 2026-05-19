@@ -1,83 +1,81 @@
 [
   {
-    "prompt": "The robot picks up the hammer from the table to hit nails.",
+    "prompt": " The person pick up the hammer from the table, uses their right hand to hammer some nails on the wall.",
     "with_modulator": "videos/!relpath!hammer_m-1.mp4",
     "without_modulator": "videos/!relpath!hammer_bc-1.mp4"
   },
   {
-    "prompt": "The robot tracks and controls the elephant toy model.",
+    "prompt": "The person, with their right hand, picks up the elephant from a high table using their right hand, passes it to someone across the table.",
     "with_modulator": "videos/!relpath!elephant_m-1.mp4",
     "without_modulator": "videos/!relpath!elephant_bc-1.mp4"
   },
   {
-    "prompt": "The robot interacts with the wineglass without breaking it.",
+    "prompt": "Working exclusively with the right hand, the person pick up a wine glass from the table, takes a drink from it.",
     "with_modulator": "videos/!relpath!wineglass_m-1.mp4",
     "without_modulator": "videos/!relpath!wineglass_bc-1.mp4"
   },
   {
-    "prompt": "The robot hand picks up the alarm clock from the table closely.",
-    "with_modulator": "videos/!relpath!alarmclock_m-1.mp4",
-    "without_modulator": "videos/!relpath!alarmclock_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot hand picks up and moves the apple smoothly.",
-    "with_modulator": "videos/!relpath!apple_m-1.mp4",
-    "without_modulator": "videos/!relpath!apple_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot interacts with the camera controller on the platform.",
-    "with_modulator": "videos/!relpath!camera_m-1.mp4",
-    "without_modulator": "videos/!relpath!camera_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot manipulates the cube to complete the rotation task.",
-    "with_modulator": "videos/!relpath!cube_m-1.mp4",
-    "without_modulator": "videos/!relpath!cube_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot arm grasps the toy duck and stabilizes it.",
-    "with_modulator": "videos/!relpath!duck_m-1.mp4",
-    "without_modulator": "videos/!relpath!duck_bc-1.mp4"
-  },
-
-  {
-    "prompt": "The robot hand manipulates the gamecontroller carefully.",
-    "with_modulator": "videos/!relpath!gamecontroller_m-1.mp4",
-    "without_modulator": "videos/!relpath!gamecontroller_bc-1.mp4"
-  },
-
-  {
-    "prompt": "The robot tracks the movement of the smartphone device.",
-    "with_modulator": "videos/!relpath!phone_m-1.mp4",
-    "without_modulator": "videos/!relpath!phone_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot hand gently lifts the rabbit toy up.",
-    "with_modulator": "videos/!relpath!rabbit_m-1.mp4",
-    "without_modulator": "videos/!relpath!rabbit_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot arm stabilizes the sphere object on the plate.",
-    "with_modulator": "videos/!relpath!sphere_m-1.mp4",
-    "without_modulator": "videos/!relpath!sphere_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot hand rotates the torus model continuously.",
-    "with_modulator": "videos/!relpath!torus_m-1.mp4",
-    "without_modulator": "videos/!relpath!torus_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot arm tracks and lifts the wrist watch.",
-    "with_modulator": "videos/!relpath!watch_m-1.mp4",
-    "without_modulator": "videos/!relpath!watch_bc-1.mp4"
-  },
-  {
-    "prompt": "The robot hand holds and moves the waterbottle.",
+    "prompt": "Only with the right hand, the person picks up a water bottle from the lower table with their right hand, raises it to ear level, vigorously shakes it several times.",
     "with_modulator": "videos/!relpath!waterbottle_m-1.mp4",
     "without_modulator": "videos/!relpath!waterbottle_bc-1.mp4"
   },
   {
-    "prompt": "The robot hand manipulates the customized wyj object.",
+    "prompt": "Using only their right hand, the person picks up the watch from the table with their right hand, raises it to shoulder level on their right side.",
+    "with_modulator": "videos/!relpath!watch_m-1.mp4",
+    "without_modulator": "videos/!relpath!watch_bc-1.mp4"
+  },
+  {
+    "prompt": "The person uses only their right hand to picks up the alarm clock with their right hand, examines it at neck level with their right hand.",
+    "with_modulator": "videos/!relpath!alarmclock_m-1.mp4",
+    "without_modulator": "videos/!relpath!alarmclock_bc-1.mp4"
+  },
+  {
+    "prompt": "With their right hand, they picks up the apple from a high table with their right hand, passes it across the table at shoulder level with their right hand, and places it back on the table with their right hand.",
+    "with_modulator": "videos/!relpath!apple_m-1.mp4",
+    "without_modulator": "videos/!relpath!apple_bc-1.mp4"
+  },
+  {
+    "prompt": "Keeping to the right hand, the person picks up the camera from the high table, presses some buttons to browse the camera's context.",
+    "with_modulator": "videos/!relpath!camera_m-1.mp4",
+    "without_modulator": "videos/!relpath!camera_bc-1.mp4"
+  },
+  {
+    "prompt": "The person, with their right hand, pick up the medium cube from the table, holds it closer for examination.",
+    "with_modulator": "videos/!relpath!cube_m-1.mp4",
+    "without_modulator": "videos/!relpath!cube_bc-1.mp4"
+  },
+  {
+    "prompt": "With their right hand, they picks up the duck with their right hand, examines it closely with a keen eye.",
+    "with_modulator": "videos/!relpath!duck_m-1.mp4",
+    "without_modulator": "videos/!relpath!duck_bc-1.mp4"
+  },
+  {
+    "prompt": "The person, using their right hand, repeatedly pick up and put down a game controller from a table.",
+    "with_modulator": "videos/!relpath!gamecontroller_m-1.mp4",
+    "without_modulator": "videos/!relpath!gamecontroller_bc-1.mp4"
+  },
+  {
+    "prompt": "The person uses only their right hand to picks up the phone using the right hand and dials a number, starts talking on the phone while walking.",
+    "with_modulator": "videos/!relpath!phone_m-1.mp4",
+    "without_modulator": "videos/!relpath!phone_bc-1.mp4"
+  },
+  {
+    "prompt": "With their right hand, they pick up the Stanford bunny from the table, briefly turns to the right while holding it for inspection.",
+    "with_modulator": "videos/!relpath!rabbit_m-1.mp4",
+    "without_modulator": "videos/!relpath!rabbit_bc-1.mp4"
+  },
+  {
+    "prompt": "Using the right hand throughout, the person retrieves a medium sphere from a high table with their right hand, holds it for a close examination, and and then repositions it on the table using the same hand.",
+    "with_modulator": "videos/!relpath!sphere_m-1.mp4",
+    "without_modulator": "videos/!relpath!sphere_bc-1.mp4"
+  },
+  {
+    "prompt": "The person, with their right hand, picks up the medium torus from the table, inspects and rotates it at eye level with their right hand.",
+    "with_modulator": "videos/!relpath!torus_m-1.mp4",
+    "without_modulator": "videos/!relpath!torus_bc-1.mp4"
+  },
+  {
+    "prompt": "Keeping to the right hand, the person picks up and puts down the binoculars on the table with their right hand.",
     "with_modulator": "videos/!relpath!wyj_m-1.mp4",
     "without_modulator": "videos/!relpath!wyj_bc-1.mp4"
   }
