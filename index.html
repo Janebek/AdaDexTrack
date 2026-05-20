@@ -612,9 +612,9 @@ function makeLazyVideoCard(src, label) {
     for (const entry of entries) {
       if (entry.isIntersecting) {
         io.disconnect();
-        // 👈 这里修改为强制自动播放、循环、静音，并去掉控制条
+        // 👇 保持 controls: true（不去掉控制条），同时开启自动播放和预加载
         const video = createVideoElement(src, {
-          controls: false,
+          controls: true,
           autoplay: true,
           preload: 'auto'
         });
