@@ -572,7 +572,7 @@ function setupHeroVideo(items) {
 function createVideoElement(src, options = {}) {
   const video = document.createElement('video');
   video.src = src;
-  video.controls = options.controls ?? true;
+  video.controls = options.controls ?? false; // 👈 默认关闭控制条
   video.playsInline = true;
   video.preload = options.preload || 'metadata';
 
@@ -612,9 +612,11 @@ function makeLazyVideoCard(src, label) {
     for (const entry of entries) {
       if (entry.isIntersecting) {
         io.disconnect();
+        // 👈 这里修改为强制自动播放、循环、静音，并去掉控制条
         const video = createVideoElement(src, {
-          controls: true,
-          preload: 'metadata'
+          controls: false,
+          autoplay: true,
+          preload: 'auto'
         });
         box.replaceChild(video, placeholder);
       }
