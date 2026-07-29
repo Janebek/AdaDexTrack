@@ -351,6 +351,49 @@
       gap: 64px;
     }
 
+    .tracking-grid.is-scrollable {
+      height: var(--five-demo-height);
+      overflow-x: hidden;
+      overflow-y: scroll;
+      padding-right: 16px;
+      scrollbar-color: #7b8492 #edf0f3;
+      scrollbar-gutter: stable;
+      scrollbar-width: auto;
+    }
+
+    .tracking-grid.is-scrollable:focus-visible {
+      outline: 3px solid rgba(21, 151, 238, 0.38);
+      outline-offset: 7px;
+    }
+
+    .tracking-grid.is-scrollable::-webkit-scrollbar {
+      width: 14px;
+    }
+
+    .tracking-grid.is-scrollable::-webkit-scrollbar-track {
+      border-radius: 999px;
+      background: #edf0f3;
+    }
+
+    .tracking-grid.is-scrollable::-webkit-scrollbar-thumb {
+      min-height: 72px;
+      border: 3px solid #edf0f3;
+      border-radius: 999px;
+      background: #7b8492;
+    }
+
+    .tracking-grid.is-scrollable::-webkit-scrollbar-thumb:hover {
+      background: #4b5563;
+    }
+
+    .demo-scroll-help {
+      margin: -30px 2px 24px;
+      color: #6b7280;
+      font-size: 15px;
+      line-height: 1.4;
+      text-align: right;
+    }
+
     .tracking-row {
       display: grid;
       grid-template-columns: 0.9fr 1.45fr 1.45fr;
@@ -592,6 +635,17 @@
       .tracking-heading-row h2 {
         text-align: center;
       }
+
+      .tracking-grid.is-scrollable {
+        height: 75vh;
+        height: min(75svh, 760px);
+        padding-right: 8px;
+      }
+
+      .demo-scroll-help {
+        margin-top: -28px;
+        text-align: center;
+      }
     }
 
     @media (max-width: 600px) {
@@ -698,7 +752,8 @@
     <div class="tracking-heading-row">
       <h2>Autonomous Dexterous Manipulation Tracking</h2>
     </div>
-    <div class="tracking-grid" id="tracking-grid"></div>
+    <p class="demo-scroll-help" id="demo-scroll-help" hidden></p>
+    <div class="tracking-grid" id="tracking-grid" role="region" tabindex="0" aria-label="Autonomous dexterous manipulation demos" aria-describedby="demo-scroll-help"></div>
   </section>
 
   <section id="paper">
@@ -760,7 +815,23 @@
 
 <script>
 const HERO_VIDEO_SRC = 'videos/teaserv2.mp4';
-const MAX_VIDEOS = Infinity;
+const VISIBLE_DEMO_COUNT = 5;
+
+const demoPlaybackObserver = new IntersectionObserver(entries => {
+  for (const entry of entries) {
+    const video = entry.target;
+    if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {});
+      }
+    } else {
+      video.pause();
+    }
+  }
+}, {
+  threshold: [0, 0.45]
+});
 
 async function loadManifest() {
   const res = await fetch('manifest.json', { cache: 'no-store' });
@@ -827,13 +898,14 @@ function makeLazyVideoCard(src, label) {
     for (const entry of entries) {
       if (entry.isIntersecting) {
         io.disconnect();
-        // 👇 保持 controls: true（不去掉控制条），同时开启自动播放和预加载
         const video = createVideoElement(src, {
           controls: true,
-          autoplay: true,
           preload: 'auto'
         });
+        video.muted = true;
+        video.loop = true;
         box.replaceChild(video, placeholder);
+        demoPlaybackObserver.observe(video);
       }
     }
   }, {
@@ -860,6 +932,30 @@ function makeTrackingRow(prompt, withModulatorSrc, withoutModulatorSrc) {
   return row;
 }
 
+function updateDemoScroller() {
+  const grid = document.getElementById('tracking-grid');
+  const help = document.getElementById('demo-scroll-help');
+  const rows = Array.from(grid.querySelectorAll('.tracking-row'));
+  const shouldScroll = rows.length > VISIBLE_DEMO_COUNT;
+
+  grid.classList.toggle('is-scrollable', shouldScroll);
+
+  if (!shouldScroll) {
+    grid.style.removeProperty('--five-demo-height');
+    help.hidden = true;
+    return;
+  }
+
+  const firstRowRect = rows[0].getBoundingClientRect();
+  const lastVisibleRowRect = rows[VISIBLE_DEMO_COUNT - 1].getBoundingClientRect();
+  const fiveDemoHeight = lastVisibleRowRect.bottom - firstRowRect.top;
+
+  grid.style.setProperty('--five-demo-height', Math.ceil(fiveDemoHeight) + 'px');
+  help.textContent = 'Showing ' + VISIBLE_DEMO_COUNT + ' of ' + rows.length + ' demos · Scroll for more ↓';
+  help.hidden = false;
+  grid.setAttribute('aria-label', 'Scrollable gallery with ' + rows.length + ' autonomous dexterous manipulation demos');
+}
+
 function renderVideos(items) {
   const grid = document.getElementById('tracking-grid');
   grid.innerHTML = '';
@@ -867,6 +963,18 @@ function renderVideos(items) {
   items.forEach(item => {
     grid.appendChild(makeTrackingRow(item.prompt, item.with_modulator, item.without_modulator));
   });
+
+  updateDemoScroller();
+}
+
+let demoResizeFrame;
+window.addEventListener('resize', () => {
+  window.cancelAnimationFrame(demoResizeFrame);
+  demoResizeFrame = window.requestAnimationFrame(updateDemoScroller);
+}, { passive: true });
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(updateDemoScroller);
 }
 
 loadManifest()
