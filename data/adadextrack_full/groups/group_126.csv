@@ -1,0 +1,2 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+381,126,cylindersmall,references/ref_0381.npy,300,s1_cylindersmall_inspect_1,98cc1e2d7b41dc461c37670d515145c4161db72dafbd17c873ca10f4f70496a4

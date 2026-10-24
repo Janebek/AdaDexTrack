@@ -1,0 +1,4 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+2643,214,hand,references/ref_2643.npy,300,s9_hand_pass_1,24022aca28671d95e9151461361dfe8462dbe5e6d953201ce32e0a9bec324b27
+2644,214,hand,references/ref_2644.npy,300,s9_hand_pass_1,7fb2e3eaf747adc4e0a98b797554c5acb88be1bba06533003604517b992ce95a
+2645,214,hand,references/ref_2645.npy,300,s9_hand_pass_1,88890c12ba9895bcfeae7e973aa1f36c35e9f2bf5b6de1e52eaf98a0fcfb329f

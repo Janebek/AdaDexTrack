@@ -1,0 +1,2 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+30,61,cubelarge,references/ref_0030.npy,300,s10_cubelarge_pass_1,8ff6d3a0ca618e79451380d316bc7d20b7980e70df25ab463f67ef4806db883d

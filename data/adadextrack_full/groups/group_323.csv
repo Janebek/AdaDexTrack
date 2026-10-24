@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1472,323,stamp,references/ref_1472.npy,300,s5_stamp_pass_1,645df842f6333b1dcd588f31c77aa9180ab1a62d95a00376a1f339840dc5f78b
+1473,323,stamp,references/ref_1473.npy,300,s5_stamp_pass_1,102ca72d7f102383af109eb34fccc2a73fcc8862017f92541c822cc3569591db

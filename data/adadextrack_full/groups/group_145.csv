@@ -1,0 +1,5 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+2612,145,duck,references/ref_2612.npy,300,s9_duck_pass_1,53eeeb2c51c305fcc1ec86f14ab7af19698d7c7ed6aac0bdbdee895c7aec14e0
+2613,145,duck,references/ref_2613.npy,300,s9_duck_pass_1,f2d3794ace7fea4f1de19c2db22ba039eae7103884eea405983f01dd73e5dfc3
+2614,145,duck,references/ref_2614.npy,300,s9_duck_pass_1,fd8585c2d9190a893abb66f719f52bee0585b6203dfb93633710149f929a9012
+2615,145,duck,references/ref_2615.npy,300,s9_duck_pass_1,e8e60319cf622593d9c2f2440048878106c607d7cf7f9e5173c653a91f205112

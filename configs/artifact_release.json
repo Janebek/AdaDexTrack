@@ -1,0 +1,71 @@
+{
+  "repo_id": "Janebek/AdaDexTrack",
+  "repo_type": "dataset",
+  "hosting": "Hugging Face Hub",
+  "revision": "f2c3671d62b45fc7b4cec4b57a37aa1c13e8412b",
+  "publication_status": "Published; example specialists verified by anonymous fresh download",
+  "object_meshes": {
+    "publication": "included",
+    "source": "GRAB",
+    "terms_url": "https://grab.is.tue.mpg.de/license.html",
+    "setup": "Download and restore assets/ with scripts/download_resources.py",
+    "package": "assets.tar.gz",
+    "rights_notice": "Original source terms still apply; publication does not establish additional redistribution permission"
+  },
+  "references": {
+    "publication": "included",
+    "generation": "DiffH2O synthesis followed by robot retargeting; per-run generation conditions not yet audited",
+    "package": "references.tar.gz"
+  },
+  "object_latents": {
+    "publication": "included",
+    "package": "assets.tar.gz"
+  },
+  "checkpoints": {
+    "publication": "included",
+    "packages": {
+      "unseen_trajectory": "bc_tracker_unseen_ref.pth",
+      "unseen_object": "bc_tracker_unseen_obj.pth",
+      "modulator_unseen_ref": "modulator_unseen_ref.pth",
+      "modulator_unseen_obj": "modulator_unseen_obj.pth",
+      "example_specialists": "example_specialists.tar.gz"
+    }
+  },
+  "upload_script": "scripts/publish_huggingface.py",
+  "download_script": "scripts/download_resources.py",
+  "packages": [
+    "assets.tar.gz",
+    "references.tar.gz",
+    "bc_tracker_unseen_ref.pth",
+    "bc_tracker_unseen_obj.pth",
+    "object_ae.pth",
+    "object_ae_data.tar.gz",
+    "modulator_unseen_ref.pth",
+    "modulator_unseen_obj.pth",
+    "example_specialists.tar.gz"
+  ],
+  "object_autoencoder": {
+    "optional": true,
+    "components": [
+      "object_ae",
+      "object_ae_data"
+    ],
+    "input_meshes": 57,
+    "split_reconstruction": "55 training / 2 validation; validation objects: rubberduck and flute",
+    "checkpoint_sha256": "71e6057345b3d230363f41819cda25fcc3bbb66adb12d12fdcb30badfab33b60",
+    "artifact_revision": "0ca02d4022922d406cf53639324b0ec266ca0c1a"
+  },
+  "example_specialists": {
+    "optional": true,
+    "component": "example_specialists",
+    "package": "example_specialists.tar.gz",
+    "group_ids": [
+      322,
+      369,
+      435
+    ],
+    "reference_count": 7,
+    "training_epochs": 2001,
+    "artifact_revision": "f2c3671d62b45fc7b4cec4b57a37aa1c13e8412b"
+  }
+}

@@ -1,0 +1,4 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+977,27,apple,references/ref_0977.npy,300,s3_apple_lift,dd3c7e5ccb4ab036affdabe769db3ecd76b1c6884d7be91b754e53987b406af4
+978,27,apple,references/ref_0978.npy,300,s3_apple_lift,ca1c09f00d168c00c17cdb45962e714e43a45080374734331afdd317c0a3f646
+979,27,apple,references/ref_0979.npy,300,s3_apple_lift,729434b27d8cdff48b3dd46c8108480f590de6d4fcdec1131378a8dc97e27134

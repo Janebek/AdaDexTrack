@@ -1,0 +1,5 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1222,272,phone,references/ref_1222.npy,300,s4_phone_pass_1,d6dff45157164d4c9880392f419c70292900464ed8e1f8eeb7406d522813323a
+1223,272,phone,references/ref_1223.npy,300,s4_phone_pass_1,c76d2f8a4b9a9476db3db02b0dd1ae0224215c3033c3faaca91cb3cc26381146
+1224,272,phone,references/ref_1224.npy,300,s4_phone_pass_1,765900509d73d3bb96451b9e90b9b4abbbda8af9a842c885d8244abede20a075
+1225,272,phone,references/ref_1225.npy,300,s4_phone_pass_1,7036ac998cc901794c7d6ab2243631b2e15806f3327e3692af3d1b4f850eebfb

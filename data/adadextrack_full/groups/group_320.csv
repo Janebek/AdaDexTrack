@@ -1,0 +1,2 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1060,320,stamp,references/ref_1060.npy,300,s3_stamp_pass_1,3b30ccdf30b6921f08dd71ea4db6ee18573557a76581d5ce7368881778c914d4

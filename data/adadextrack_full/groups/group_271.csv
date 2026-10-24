@@ -1,0 +1,2 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1057,271,phone,references/ref_1057.npy,300,s3_phone_call_1,7e09703b66b890405fc6b3fac9fd338d491113cd8fcc8074e8325e678d7c7adf

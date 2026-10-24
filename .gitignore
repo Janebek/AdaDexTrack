@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.env
+.env.*
+outputs/
+logs/
+runs/
+_site/
+
+# Runtime binaries are distributed through the Hugging Face dataset repository.
+assets/
+data/**/references/*.npy
+checkpoints/*.pth
+checkpoints/specialists/
+
+# Optional recovered object-AE input meshes are distributed on Hugging Face.
+data/object_ae/meshes/

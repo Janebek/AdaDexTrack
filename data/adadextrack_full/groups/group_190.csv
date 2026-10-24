@@ -1,0 +1,5 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+475,190,hammer,references/ref_0475.npy,300,s1_hammer_use_3,569d7a16f4e0b50f314b71b4a344e089f2ed5ee8b4eeee94325d5c2884ba46e0
+476,190,hammer,references/ref_0476.npy,300,s1_hammer_use_3,390bc70cfb925d9ac3b9dabdd1a2527fc100845349d9f0fa26ec25e5ba48e512
+477,190,hammer,references/ref_0477.npy,300,s1_hammer_use_3,d8188d26c6eae3b81d60697d705094a43c276d62048c1ff46f7f033561fa5200
+478,190,hammer,references/ref_0478.npy,300,s1_hammer_use_3,05e9c667c393a30925ff83bdf889d6e8bbcb881227afd66f38f7a7a7e89b4cab

@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adadextrack"
+version = "0.1.0"
+description = "AdaDexTrack reference replay and BC tracker evaluation"
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+object-ae = ["trimesh==3.23.5"]
+
+[tool.setuptools.packages.find]
+include = ["adadextrack*"]

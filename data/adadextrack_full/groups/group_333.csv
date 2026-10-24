@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+899,333,stanfordbunny,references/ref_0899.npy,300,s2_stanfordbunny_inspect_1,e4bf8ea91b7ae2ae8e745d7285012deac5d61f0203531331990bc5e7ddd8abde
+900,333,stanfordbunny,references/ref_0900.npy,300,s2_stanfordbunny_inspect_1,217fb8f000c2aa264d86cf844ca69703ea14fdec0b2c021af91cc0adb63c521c

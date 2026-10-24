@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+169,307,spheremedium,references/ref_0169.npy,300,s10_spheremedium_inspect_1,1ffe67785218057e8cc817e03f9d62d0716780f2879bf317b5ee9f92753e73f1
+170,307,spheremedium,references/ref_0170.npy,300,s10_spheremedium_inspect_1,61845aaa8de066a484aa84e9ebc9c56aa66719ae411ec87d7a0521b5649e10c5

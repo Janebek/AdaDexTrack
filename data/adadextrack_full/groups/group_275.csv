@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+2028,275,phone,references/ref_2028.npy,300,s7_phone_pass_1,13fbe08b4f9c4418ac48c2af2034e868204a27713093a72151339087a038efef
+2029,275,phone,references/ref_2029.npy,300,s7_phone_pass_1,57aad6e091d4c807fd02264668f3a3fd00fb2077057662e57be22fe86cfb45d2

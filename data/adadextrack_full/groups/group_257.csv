@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1454,257,mug,references/ref_1454.npy,300,s5_mug_drink_1,00f4655e27de2168eae6562cf0032af93b2c45cab2af268226da0f750bc49471
+1455,257,mug,references/ref_1455.npy,300,s5_mug_drink_1,21c496d89aa02c61af690e0a241798fabd855ee424b0ec309b86388b41fb73ac

@@ -1,0 +1,2 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1344,50,camera,references/ref_1344.npy,300,s5_camera_pass_1,ef6415f55258d1a65942ca6edc8f06087a29412ff2f3deed5cd46e95493bd1de

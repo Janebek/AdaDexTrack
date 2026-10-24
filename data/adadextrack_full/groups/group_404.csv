@@ -1,0 +1,5 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+2077,404,watch,references/ref_2077.npy,300,s7_watch_pass_1,a0defdbe564a14238102139ed851cc9be8948fc84081abb6dad39cd33007eec5
+2078,404,watch,references/ref_2078.npy,300,s7_watch_pass_1,6719bc6f7268efb803204dbcdcfde7326faf92efd6f2984d2478ff15dcf751a1
+2079,404,watch,references/ref_2079.npy,300,s7_watch_pass_1,706078b5b42d08f253976af9d4c615a6081ac3dc6963e6775cc2218108979066
+2080,404,watch,references/ref_2080.npy,300,s7_watch_pass_1,e9c23c7ff6951b9a60b101975a4729e38c89b563704a46826bc5434f20eb4ed5

@@ -1,0 +1,30 @@
+params:
+  model:
+    name: continuous_a2c_logstd
+  network:
+    name: actor_critic
+    separate: true
+    space:
+      continuous:
+        mu_activation: None
+        sigma_activation: None
+        mu_init:
+          name: default
+        sigma_init:
+          name: const_initializer
+          val: 0
+        fixed_sigma: true
+    mlp:
+      units:
+      - 4096
+      - 2048
+      - 1024
+      - 512
+      - 256
+      - 128
+      activation: elu
+      d2rl: false
+      initializer:
+        name: default
+      regularizer:
+        name: None

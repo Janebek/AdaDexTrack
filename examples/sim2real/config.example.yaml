@@ -1,0 +1,15 @@
+# Paths are relative to the AdaDexTrack repository root.
+reference_manifest: data/adadextrack_full/manifest.csv
+reference_id: 1237
+robot_urdf: assets/xarm_leap/urdf/xarm_leap.urdf
+tracker_checkpoint: checkpoints/bc_tracker_unseen_ref.pth
+modulator_checkpoint: checkpoints/modulator_unseen_ref.pth
+device: cuda:0
+
+# Fill in the arm IP and camera-to-base calibration for your installation.
+arm_ip: null
+base_frame: base_link
+# RealSense ROS1 driver: https://github.com/realsenseai/realsense-ros/tree/ros1-legacy
+camera_frame: camera_color_optical_frame
+object_frame: object_frame
+T_base_camera: null

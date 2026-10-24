@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1895,433,wineglass,references/ref_1895.npy,300,s6_wineglass_drink_2,93bea99502f32fc4992f620e4315ca35523399ffd594330fe6cd2bfcfa1d6a71
+1896,433,wineglass,references/ref_1896.npy,300,s6_wineglass_drink_2,b975c44651a206c19f6b61f0888087a34b720be81e040d33eb102b02079d6247

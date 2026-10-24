@@ -1,0 +1,27 @@
+{
+  "source_root": "/home/janebek/Janebek/IsaacGymEnvs3",
+  "source_splits": {
+    "unseen_trajectory_train": {
+      "filename": "evaluation_summary_10refs_filtered_10cm_60deg_train.csv",
+      "sha256": "e707c799f4dbb585406f70909033b23117754f5336ea2647f39eef499fb5e241",
+      "references": 2212
+    },
+    "unseen_trajectory_test": {
+      "filename": "evaluation_summary_10refs_filtered_10cm_60deg_test.csv",
+      "sha256": "25cfe5550518ea1329fb543987e150f517cf2cb3e1aa4c8a985beedc0be7f4c9",
+      "references": 553
+    },
+    "unseen_object_train": {
+      "filename": "evaluation_summary_10refs_filtered_10cm_60deg_object_train.csv",
+      "sha256": "3d3c65eb8fe6fe0072b97f8fcf75b0cdf1cfbabe39a37887ec34e6d9a9f7e130",
+      "references": 2520
+    },
+    "unseen_object_test": {
+      "filename": "evaluation_summary_10refs_filtered_10cm_60deg_object_test.csv",
+      "sha256": "e7e993b4a56f2a074b5dc677565eca6df93c9611fc5a04fcb4064a88684fb180",
+      "references": 245
+    }
+  },
+  "filtering": "Original paper CSV membership only; no height, BC success, or accuracy filtering.",
+  "description_note": "Descriptions retain the source semantic base names; natural-language captions are not imported."
+}

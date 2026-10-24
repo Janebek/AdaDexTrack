@@ -1,0 +1,2 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1578,81,cubesmall,references/ref_1578.npy,300,s6_cubesmall_pass_1,e727adead7da5140d430a73a102f19cd4c23350ce86a0c65bd5ca7574fecaac8

@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+909,361,teapot,references/ref_0909.npy,300,s2_teapot_pour_1,2e0e237c12bed1940baed6b83c85744f09be22b7848599e83b4781e4d4faaf95
+910,361,teapot,references/ref_0910.npy,300,s2_teapot_pour_1,9f99b321b34c2c381338d1fc7ada43c5beacb2a0c3a3577bd1a1668c6acbf05a

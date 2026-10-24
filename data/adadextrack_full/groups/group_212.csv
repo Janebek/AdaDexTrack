@@ -1,0 +1,2 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+2270,212,hand,references/ref_2270.npy,300,s8_hand_inspect_1,ef892a8a013189d6d9037ccc2152f369c9ef5a2e8fbcb5bd724bcedb152bb681
