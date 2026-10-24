@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1058,297,pyramidsmall,references/ref_1058.npy,300,s3_pyramidsmall_pass_1,c428c7bc20dbd47ceb12a1c0e9d86e0f805ceca0968d60b92306edf091f1b173
+1059,297,pyramidsmall,references/ref_1059.npy,300,s3_pyramidsmall_pass_1,8c447c7a5a792fc9254f79d9b4ccef610038ac861781e18994bcd9904b537254

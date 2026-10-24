@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1023,165,flashlight,references/ref_1023.npy,300,s3_flashlight_on_1,d2a7fed38543cc79473b02c46d1d92e9cecb1b1ae8a2e6485a5bfb4a876457fd
+1024,165,flashlight,references/ref_1024.npy,300,s3_flashlight_on_1,cd9545bf3312018fb8c6fb080b9402d3b1064e4a151938179a4890c9b14a0a24

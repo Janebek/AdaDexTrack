@@ -1,0 +1,4 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1980,171,flashlight,references/ref_1980.npy,300,s7_flashlight_on_1,ba920d8cc0c633da77f441cca09e65103c63809587e341f6f53edcfd0b2d235e
+1981,171,flashlight,references/ref_1981.npy,300,s7_flashlight_on_1,3e6ad341e161573115a3a653bbb7cefd7b102c03a553e084afe636ab807fb7ac
+1982,171,flashlight,references/ref_1982.npy,300,s7_flashlight_on_1,246c0db89e2e2ea0a41acefc658249fdffff4daeb5e3e9ceaae31a5f5d10cf41

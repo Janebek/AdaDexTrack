@@ -1,0 +1,4 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+2002,238,mouse,references/ref_2002.npy,300,s7_mouse_pass_1,784172aa62a6d1b94026aa02e2eaaecf78c3b89e66ab3539ecdd8b08f663d38f
+2003,238,mouse,references/ref_2003.npy,300,s7_mouse_pass_1,a024a94521eabe5ea7aa2fc360c2c2a68dee964b8afd4a239938715ccc330fc3
+2004,238,mouse,references/ref_2004.npy,300,s7_mouse_pass_1,d2110b946b183ed82b280a0abb0cb16ead2c7d9dec3d8b65c73509cb78bc607e

@@ -1,0 +1,58 @@
+{
+  "dataset": "data/adadextrack_full/examples/specialists.csv",
+  "group_ids": [
+    322,
+    369,
+    435
+  ],
+  "references": 7,
+  "groups": [
+    {
+      "group_id": "322",
+      "object_name": "stamp",
+      "reference_count": 2,
+      "reference_ids": [
+        1237,
+        1232
+      ],
+      "description": "s4_stamp_stamp_1"
+    },
+    {
+      "group_id": "369",
+      "object_name": "toothpaste",
+      "reference_count": 4,
+      "reference_ids": [
+        1094,
+        1089,
+        1087,
+        1093
+      ],
+      "description": "s3_toothpaste_lift"
+    },
+    {
+      "group_id": "435",
+      "object_name": "wineglass",
+      "reference_count": 1,
+      "reference_ids": [
+        2099
+      ],
+      "description": "s7_wineglass_drink_1"
+    }
+  ],
+  "specialist_checkpoints": [
+    "outputs/specialists/examples/group_322/best.pth",
+    "outputs/specialists/examples/group_369/best.pth",
+    "outputs/specialists/examples/group_435/best.pth"
+  ],
+  "status": "Train specialists with scripts/train_specialists.py; collect with scripts/collect_specialists.py; train one tracker with scripts/train_bc.py.",
+  "modulator_tracker": "checkpoints/bc_tracker_unseen_ref.pth",
+  "selection_rule": "Fixed example members from the former curated selection intersected with unseen-trajectory train. Global IDs and reference files are unchanged.",
+  "demonstrations": "outputs/bc_data/examples",
+  "trained_bc_checkpoint": "outputs/bc/examples/best.pth",
+  "released_specialist_checkpoints": [
+    "checkpoints/specialists/examples/group_322/best.pth",
+    "checkpoints/specialists/examples/group_369/best.pth",
+    "checkpoints/specialists/examples/group_435/best.pth"
+  ],
+  "released_specialist_component": "example_specialists"
+}

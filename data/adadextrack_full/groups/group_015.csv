@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1899,15,alarmclock,references/ref_1899.npy,300,s7_alarmclock_lift,82888e2ae96151f9c88f7eb58ce0e18e06bf473749b79060e230f95a74050ca3
+1900,15,alarmclock,references/ref_1900.npy,300,s7_alarmclock_lift,d9159a3e5e0e5c49536fdfa2043822170b10dd1ffcb331060dbc89db3eaece1b

@@ -1,0 +1,4 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+45,76,cubesmall,references/ref_0045.npy,300,s10_cubesmall_pass_1,76d3380a1c180b66acab81500d33f91d2a8fe02d9fa6666b612ea4e67471fa74
+46,76,cubesmall,references/ref_0046.npy,300,s10_cubesmall_pass_1,57331c73bcb4c9404df51fa4ebc2066b1b1974724a03cc7c1b89496ad76080e7
+47,76,cubesmall,references/ref_0047.npy,300,s10_cubesmall_pass_1,26fa4a2be4e3ce658fb1e24feb6a5a2c38ed25c42684565af4b11c698bce0817

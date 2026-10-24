@@ -1,0 +1,235 @@
+[
+  {
+    "mode": "replay",
+    "group_id": "322",
+    "object": "stamp",
+    "reference_ids": [
+      "1237",
+      "1232"
+    ],
+    "camera_position": [
+      1.08,
+      -0.82,
+      0.84
+    ],
+    "camera_target": [
+      0.43,
+      0.07,
+      0.25
+    ],
+    "horizontal_fov": 45.0,
+    "camera_size": [
+      640,
+      480
+    ],
+    "video_size": [
+      1304,
+      590
+    ],
+    "fps": 12,
+    "frames": 300,
+    "status": "complete",
+    "video": "replay_group_322.mp4",
+    "preview": "replay_group_322.webp",
+    "video_sha256": "4456b034ffda418bd86cc2dc06dccd78940959eb21f3777495d52baab083f1f8",
+    "preview_sha256": "62d760b39c7215f1cebeb78d051774a5766ecc098f5b9a3cebd771ab295b7920",
+    "reference_manifest": "data/adadextrack_full/examples/specialists.csv"
+  },
+  {
+    "mode": "replay",
+    "group_id": "369",
+    "object": "toothpaste",
+    "reference_ids": [
+      "1094",
+      "1089",
+      "1087",
+      "1093"
+    ],
+    "camera_position": [
+      1.08,
+      -0.82,
+      0.84
+    ],
+    "camera_target": [
+      0.43,
+      0.07,
+      0.25
+    ],
+    "horizontal_fov": 45.0,
+    "camera_size": [
+      640,
+      480
+    ],
+    "video_size": [
+      1304,
+      1108
+    ],
+    "fps": 12,
+    "frames": 300,
+    "status": "complete",
+    "video": "replay_group_369.mp4",
+    "preview": "replay_group_369.webp",
+    "video_sha256": "514abf1a382e62080079cc195c4a6e9505379dec21a610c5f454f50c49d74ab2",
+    "preview_sha256": "910019f1dc53c5f8092410269661e8266c14e37765317eed3cefc3f143256b87",
+    "reference_manifest": "data/adadextrack_full/examples/specialists.csv"
+  },
+  {
+    "mode": "replay",
+    "group_id": "435",
+    "object": "wineglass",
+    "reference_ids": [
+      "2099"
+    ],
+    "camera_position": [
+      1.08,
+      -0.82,
+      0.84
+    ],
+    "camera_target": [
+      0.43,
+      0.07,
+      0.25
+    ],
+    "horizontal_fov": 45.0,
+    "camera_size": [
+      640,
+      480
+    ],
+    "video_size": [
+      656,
+      590
+    ],
+    "fps": 12,
+    "frames": 300,
+    "status": "complete",
+    "video": "replay_group_435.mp4",
+    "preview": "replay_group_435.webp",
+    "video_sha256": "58a5558515d9e7b5e5c4f3da6521da40b56138d80c5aef835ef4aad738f05174",
+    "preview_sha256": "5bf67f7c73bf908469494f43bdaafee9ec7ac97dcf5c0bfbd03ba34d02bd0e66",
+    "reference_manifest": "data/adadextrack_full/examples/specialists.csv"
+  },
+  {
+    "mode": "specialist",
+    "group_id": "322",
+    "object": "stamp",
+    "reference_ids": [
+      "1237",
+      "1232"
+    ],
+    "camera_position": [
+      1.08,
+      -0.82,
+      0.84
+    ],
+    "camera_target": [
+      0.43,
+      0.07,
+      0.25
+    ],
+    "horizontal_fov": 45.0,
+    "camera_size": [
+      640,
+      480
+    ],
+    "video_size": [
+      1304,
+      590
+    ],
+    "fps": 12,
+    "frames": 300,
+    "status": "complete",
+    "video": "specialist_group_322.mp4",
+    "preview": "specialist_group_322.webp",
+    "video_sha256": "279bf92d8c9a09f3cbfebb3af2b740853c1cbaff6e557f0e54be796df5e1ef3d",
+    "preview_sha256": "02a7259aeca34a3d8c6bff0314c5894aebd73d7c3aa9b1a1def2db9c73c4433f",
+    "reference_manifest": "data/adadextrack_full/examples/specialists.csv",
+    "seed": 42,
+    "checkpoint": "checkpoints/specialists/examples/group_322/best.pth",
+    "checkpoint_sha256": "72089f496a3939382a139bde597450eaf444592a91228499ace39771bf05e69f",
+    "initial_pose_perturbation": false,
+    "domain_randomization": false
+  },
+  {
+    "mode": "specialist",
+    "group_id": "369",
+    "object": "toothpaste",
+    "reference_ids": [
+      "1094",
+      "1089",
+      "1087",
+      "1093"
+    ],
+    "camera_position": [
+      1.08,
+      -0.82,
+      0.84
+    ],
+    "camera_target": [
+      0.43,
+      0.07,
+      0.25
+    ],
+    "horizontal_fov": 45.0,
+    "camera_size": [
+      640,
+      480
+    ],
+    "video_size": [
+      1304,
+      1108
+    ],
+    "fps": 12,
+    "frames": 300,
+    "status": "complete",
+    "video": "specialist_group_369.mp4",
+    "preview": "specialist_group_369.webp",
+    "video_sha256": "bf67ebe92d33f6c906127e648a719f8b3acf84eb67243d8bb99f396960a3224b",
+    "preview_sha256": "7aa22c657f4046d37597c9e0ab38ae31e6be32d2b2720660708e6a5429b244de",
+    "reference_manifest": "data/adadextrack_full/examples/specialists.csv",
+    "seed": 42,
+    "checkpoint": "checkpoints/specialists/examples/group_369/best.pth",
+    "checkpoint_sha256": "eff454ba6f706d4fe55664c2dc67e81dc9b33ed1d1ceaae7bfe0f829069356a9",
+    "initial_pose_perturbation": false,
+    "domain_randomization": false
+  },
+  {
+    "mode": "specialist",
+    "group_id": "435",
+    "object": "wineglass",
+    "reference_ids": [
+      "2099"
+    ],
+    "camera_position": [
+      1.08,
+      -0.82,
+      0.84
+    ],
+    "camera_target": [
+      0.43,
+      0.07,
+      0.25
+    ],
+    "horizontal_fov": 45.0,
+    "camera_size": [
+      640,
+      480
+    ],
+    "video_size": [
+      656,
+      590
+    ],
+    "fps": 12,
+    "frames": 300,
+    "status": "complete",
+    "video": "specialist_group_435.mp4",
+    "preview": "specialist_group_435.webp",
+    "video_sha256": "1460fa084da8da119fe751454f64d1849d81091ba98da153f85e3920ae702903",
+    "preview_sha256": "47fb16f54ed77ce0977501bd39b6045a3065e7c490030a3177cb68b149081463",
+    "reference_manifest": "data/adadextrack_full/examples/specialists.csv",
+    "seed": 42,
+    "checkpoint": "checkpoints/specialists/examples/group_435/best.pth",
+    "checkpoint_sha256": "32cbce635c1f0d2535f3555f5077eface1b725be2413c2c0ddc3d825e807e9eb",
+    "initial_pose_perturbation": false,
+    "domain_randomization": false
+  }
+]

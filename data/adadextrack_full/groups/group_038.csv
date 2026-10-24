@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1342,38,binoculars,references/ref_1342.npy,300,s5_binoculars_pass_1,c680f880b47b1bda9b6540f76db7a41b907a23200d85b7eb66ac33f6ca4436a2
+1343,38,binoculars,references/ref_1343.npy,300,s5_binoculars_pass_1,3bc11dc943d59acd27f1a89bcea4277c7080bc256ff62e3d415b256907363565

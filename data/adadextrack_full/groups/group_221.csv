@@ -1,0 +1,5 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+493,221,knife,references/ref_0493.npy,300,s1_knife_lift,f85b148f8a8ae88e5444f8fa728a6653623d12f91bf4c162f4371617e86c5331
+494,221,knife,references/ref_0494.npy,300,s1_knife_lift,4860b45f67ea9e4f7b61aaa973bb3d672b8115a7bdcb8239312d23b341d8c74e
+495,221,knife,references/ref_0495.npy,300,s1_knife_lift,0db4f67e130204789f75025d085585521aee6a8e1f6d9f4a7fd3b425e5b2ea92
+496,221,knife,references/ref_0496.npy,300,s1_knife_lift,2571f01d6b87138e46777209e10534677506692a50921d6bf63a2bab8a0052c8

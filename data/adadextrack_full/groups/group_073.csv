@@ -1,0 +1,3 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1946,73,cubemedium,references/ref_1946.npy,300,s7_cubemedium_pass_1,c02048e895318dfe2ff666bf1191f61d63bcae5d2b44707471973175ed30eea6
+1947,73,cubemedium,references/ref_1947.npy,300,s7_cubemedium_pass_1,570a6a40d4f620c627e9e05c0398d865ded72985970d5ff5d4bcd5122f507e6a

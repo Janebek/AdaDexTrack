@@ -1,0 +1,4 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+901,343,stapler,references/ref_0901.npy,300,s2_stapler_pass_1,d88fccabd0b85943788e95d2ae5733f31e41d453c3f625e134fc4b64c1e808f3
+902,343,stapler,references/ref_0902.npy,300,s2_stapler_pass_1,0c01b0e304f1d22f9eebd4bceb83371d334e762dd2b01c38020bfbe57cf04499
+903,343,stapler,references/ref_0903.npy,300,s2_stapler_pass_1,8d52b253e7f0e56eca0c470ee5f6255231f6b10ae2a466a3c4c8d254c015cd2d

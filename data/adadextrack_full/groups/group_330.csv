@@ -1,0 +1,5 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+2695,330,stamp,references/ref_2695.npy,300,s9_stamp_pass_1,6f1ae3513eed583c314d90b393384c8e0da1183de1bca5606b0c40ccf9dfbf8b
+2696,330,stamp,references/ref_2696.npy,300,s9_stamp_pass_1,b5cedb37fa2b1882de5716e7193a72abcd699874ce4f58474698b3c8d385b680
+2697,330,stamp,references/ref_2697.npy,300,s9_stamp_pass_1,263aef275157d1f36a78a682d439fe2825619c187b72a1e0bcb511f8a46b2f21
+2698,330,stamp,references/ref_2698.npy,300,s9_stamp_pass_1,0c102beb31a17cec01cfe9fe91c70672d44b9969e2fc0f3778706b47b4994b18

@@ -1,0 +1,572 @@
+[
+  {
+    "reference_id": "1566",
+    "object_name": "camera",
+    "description": "s6_camera_takepicture_1",
+    "reference_sha256": "8436f92fdd6c6c3cfe98b84a8428fe323469d4b2f783c248d9f790cc6660f41e",
+    "dataset": "unseen_ref",
+    "split": "test",
+    "seed": 42,
+    "frames": 300,
+    "fps": 12,
+    "duration_seconds": 25,
+    "camera_position": [
+      1.18,
+      -0.93,
+      1.25
+    ],
+    "camera_target": [
+      0.45,
+      0.3,
+      0.5
+    ],
+    "horizontal_fov": 48.0,
+    "camera_size": [
+      640,
+      640
+    ],
+    "video_size": [
+      1400,
+      780
+    ],
+    "initial_pose_perturbation": false,
+    "domain_randomization": false,
+    "lag": false,
+    "observation_noise": "Existing task Gaussian noise retained (std 0.002).",
+    "video": "ref_1566.mp4",
+    "video_sha256": "05f8618547c3a62aedd3df30a95062422331395477d886276f7857a4db9bf0eb",
+    "preview": "ref_1566.webp",
+    "preview_sha256": "2ba450f0d78723751506d41c1ca67cf1fbcfc8e095be24d25b1e30bca0e83302",
+    "left": "with_modulator",
+    "right": "without_modulator",
+    "with_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.02120561979672745,
+        "object_rot_error_rad": 0.5705689154346284,
+        "wrist_pos_error_m": 0.05135090848966554,
+        "wrist_rot_error_rad": 0.5632557046309921,
+        "finger_mae_rad": 0.273060392861358,
+        "num_frames": 300,
+        "mean_error_success": true,
+        "completion_rate": 1.0,
+        "completed_frames": 300
+      },
+      "checkpoint": "checkpoints/modulator_unseen_ref.pth",
+      "checkpoint_sha256": "52e1433f9f6107c5a10a0d2a22153ffd639ebbc16063d240d1e9a5f75946747d",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "camera": "aa00a04ab2f6f3e12bcee3955257f265b9e43040d4ec7c9632b6e9895635ebad"
+      },
+      "object_peak_z_m": 0.958948016166687,
+      "object_airborne_fraction_above_30cm": 0.7566666666666667,
+      "object_final_z_m": 0.9382064342498779
+    },
+    "without_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.6190980801064214,
+        "object_rot_error_rad": 1.4632992935512856,
+        "wrist_pos_error_m": 0.1540906666266461,
+        "wrist_rot_error_rad": 1.1725060110656829,
+        "finger_mae_rad": 0.3458234973922087,
+        "num_frames": 300,
+        "mean_error_success": false,
+        "completion_rate": 0.24,
+        "completed_frames": 72
+      },
+      "checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "checkpoint_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "camera": "aa00a04ab2f6f3e12bcee3955257f265b9e43040d4ec7c9632b6e9895635ebad"
+      },
+      "object_peak_z_m": 0.23895829916000366,
+      "object_airborne_fraction_above_30cm": 0.0,
+      "object_final_z_m": 0.03674999997019768
+    },
+    "reference_peak_z_m": 0.9680156707763672,
+    "generator": "scripts/record_modulator_comparisons.py",
+    "panel_gap_px": 48,
+    "display_width_px": 350,
+    "display_panel_width_px": 160,
+    "display_panel_gap_px": 12,
+    "panel_margin_px": 36,
+    "display_panel_margin_px": 9
+  },
+  {
+    "reference_id": "258",
+    "object_name": "alarmclock",
+    "description": "s1_alarmclock_lift",
+    "reference_sha256": "a5129b9a4ea9625c43ae32e10d76b242194c805a216af628fd5a2a80038837d4",
+    "dataset": "unseen_ref",
+    "split": "test",
+    "seed": 42,
+    "frames": 300,
+    "fps": 12,
+    "duration_seconds": 25,
+    "camera_position": [
+      1.18,
+      -0.93,
+      1.25
+    ],
+    "camera_target": [
+      0.45,
+      0.3,
+      0.5
+    ],
+    "horizontal_fov": 48.0,
+    "camera_size": [
+      640,
+      640
+    ],
+    "video_size": [
+      1400,
+      780
+    ],
+    "initial_pose_perturbation": false,
+    "domain_randomization": false,
+    "lag": false,
+    "observation_noise": "Existing task Gaussian noise retained (std 0.002).",
+    "video": "ref_258.mp4",
+    "video_sha256": "b92c98e5865e39e6c474a53d1d4edd071c67592b9a3e3017565bfd995b05a4e7",
+    "preview": "ref_258.webp",
+    "preview_sha256": "42380b8fe8bdcaa6a3a8dc95bc61f295bf3d945a9b4580944dc8750aa73cbdeb",
+    "left": "with_modulator",
+    "right": "without_modulator",
+    "with_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.04583365956982314,
+        "object_rot_error_rad": 0.8131680907063823,
+        "wrist_pos_error_m": 0.04933917241142633,
+        "wrist_rot_error_rad": 0.41217926823693835,
+        "finger_mae_rad": 0.34194700995316757,
+        "num_frames": 300,
+        "mean_error_success": true,
+        "completion_rate": 0.9366666666666666,
+        "completed_frames": 281
+      },
+      "checkpoint": "checkpoints/modulator_unseen_ref.pth",
+      "checkpoint_sha256": "52e1433f9f6107c5a10a0d2a22153ffd639ebbc16063d240d1e9a5f75946747d",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "alarmclock": "e2905ce037d3644bd3f7331bde2498388773239da4dee29b89048466ad6226ba"
+      },
+      "object_peak_z_m": 0.9188214540481567,
+      "object_airborne_fraction_above_30cm": 0.7366666666666667,
+      "object_final_z_m": 0.8736745715141296
+    },
+    "without_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.6501191731812386,
+        "object_rot_error_rad": 1.0190085037965892,
+        "wrist_pos_error_m": 0.0746664831151264,
+        "wrist_rot_error_rad": 0.571904887174581,
+        "finger_mae_rad": 0.2903976865881365,
+        "num_frames": 300,
+        "mean_error_success": false,
+        "completion_rate": 0.25666666666666665,
+        "completed_frames": 77
+      },
+      "checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "checkpoint_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "alarmclock": "e2905ce037d3644bd3f7331bde2498388773239da4dee29b89048466ad6226ba"
+      },
+      "object_peak_z_m": 0.0884196013212204,
+      "object_airborne_fraction_above_30cm": 0.0,
+      "object_final_z_m": 0.08189435303211212
+    },
+    "reference_peak_z_m": 0.9871180653572083,
+    "generator": "scripts/record_modulator_comparisons.py",
+    "panel_gap_px": 48,
+    "display_width_px": 350,
+    "display_panel_width_px": 160,
+    "display_panel_gap_px": 12,
+    "panel_margin_px": 36,
+    "display_panel_margin_px": 9
+  },
+  {
+    "reference_id": "973",
+    "object_name": "apple",
+    "description": "s3_apple_eat_1",
+    "reference_sha256": "88f6a72c6421dbdca8114b82b05fe30ce616b814cda5fafb63ac5206387ca05e",
+    "dataset": "unseen_ref",
+    "split": "test",
+    "seed": 42,
+    "frames": 300,
+    "fps": 12,
+    "duration_seconds": 25,
+    "camera_position": [
+      1.18,
+      -0.93,
+      1.25
+    ],
+    "camera_target": [
+      0.45,
+      0.3,
+      0.5
+    ],
+    "horizontal_fov": 48.0,
+    "camera_size": [
+      640,
+      640
+    ],
+    "video_size": [
+      1400,
+      780
+    ],
+    "initial_pose_perturbation": false,
+    "domain_randomization": false,
+    "lag": false,
+    "observation_noise": "Existing task Gaussian noise retained (std 0.002).",
+    "video": "ref_973.mp4",
+    "video_sha256": "8d271a9a8f2f239006e9bc242f8c51b90fd13e2814f6a0a00ee90331e6232683",
+    "preview": "ref_973.webp",
+    "preview_sha256": "1af77696ce0452351d79e560ca42a70156b778563e34d90430f9a4c3d062bf06",
+    "left": "with_modulator",
+    "right": "without_modulator",
+    "with_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.016177816936951882,
+        "object_rot_error_rad": 0.4421971196150171,
+        "wrist_pos_error_m": 0.03591686097748518,
+        "wrist_rot_error_rad": 0.44076047923983924,
+        "finger_mae_rad": 0.3101277044395018,
+        "num_frames": 300,
+        "mean_error_success": true,
+        "completion_rate": 1.0,
+        "completed_frames": 300
+      },
+      "checkpoint": "checkpoints/modulator_unseen_ref.pth",
+      "checkpoint_sha256": "52e1433f9f6107c5a10a0d2a22153ffd639ebbc16063d240d1e9a5f75946747d",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "apple": "a4d33a12b5e22fba087adab3538f7b21c6756bdff2e274db0d1f4e227575b02d"
+      },
+      "object_peak_z_m": 0.6721788644790649,
+      "object_airborne_fraction_above_30cm": 0.8066666666666666,
+      "object_final_z_m": 0.6485419869422913
+    },
+    "without_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.559860042637012,
+        "object_rot_error_rad": 1.8981046511346187,
+        "wrist_pos_error_m": 0.07282625663069571,
+        "wrist_rot_error_rad": 0.3957317662372435,
+        "finger_mae_rad": 0.35482215786890264,
+        "num_frames": 300,
+        "mean_error_success": false,
+        "completion_rate": 0.18,
+        "completed_frames": 54
+      },
+      "checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "checkpoint_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "apple": "a4d33a12b5e22fba087adab3538f7b21c6756bdff2e274db0d1f4e227575b02d"
+      },
+      "object_peak_z_m": 0.0769151896238327,
+      "object_airborne_fraction_above_30cm": 0.0,
+      "object_final_z_m": 0.06365706026554108
+    },
+    "reference_peak_z_m": 0.6710834503173828,
+    "generator": "scripts/record_modulator_comparisons.py",
+    "panel_gap_px": 48,
+    "display_width_px": 350,
+    "display_panel_width_px": 160,
+    "display_panel_gap_px": 12,
+    "panel_margin_px": 36,
+    "display_panel_margin_px": 9
+  },
+  {
+    "reference_id": "478",
+    "object_name": "hammer",
+    "description": "s1_hammer_use_3",
+    "reference_sha256": "05e9c667c393a30925ff83bdf889d6e8bbcb881227afd66f38f7a7a7e89b4cab",
+    "dataset": "unseen_ref",
+    "split": "test",
+    "seed": 42,
+    "frames": 300,
+    "fps": 12,
+    "duration_seconds": 25,
+    "camera_position": [
+      1.18,
+      -0.93,
+      1.25
+    ],
+    "camera_target": [
+      0.45,
+      0.3,
+      0.5
+    ],
+    "horizontal_fov": 48.0,
+    "camera_size": [
+      640,
+      640
+    ],
+    "video_size": [
+      1400,
+      780
+    ],
+    "initial_pose_perturbation": false,
+    "domain_randomization": false,
+    "lag": false,
+    "observation_noise": "Existing task Gaussian noise retained (std 0.002).",
+    "video": "ref_478.mp4",
+    "video_sha256": "313a2cef2851d8ab3055f67c121d2cf1b3ab781eafc6061182b425c3c9a5ed50",
+    "preview": "ref_478.webp",
+    "preview_sha256": "9043b8a8428e22f2373baf276a78b22ce8ac531c9cf9e976620ff32f7a5f2f64",
+    "left": "with_modulator",
+    "right": "without_modulator",
+    "with_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.009299295543892704,
+        "object_rot_error_rad": 0.3520519020477552,
+        "wrist_pos_error_m": 0.022963033792732252,
+        "wrist_rot_error_rad": 0.502912245298202,
+        "finger_mae_rad": 0.3177278137061633,
+        "num_frames": 300,
+        "mean_error_success": true,
+        "completion_rate": 1.0,
+        "completed_frames": 300
+      },
+      "checkpoint": "checkpoints/modulator_unseen_ref.pth",
+      "checkpoint_sha256": "52e1433f9f6107c5a10a0d2a22153ffd639ebbc16063d240d1e9a5f75946747d",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "hammer": "9445c609ca491eaf6e1c12d82a66773960cca0ea18ec47ba0d8bcf419230ebfe"
+      },
+      "object_peak_z_m": 0.7371914386749268,
+      "object_airborne_fraction_above_30cm": 0.72,
+      "object_final_z_m": 0.7240357398986816
+    },
+    "without_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.42534266358391476,
+        "object_rot_error_rad": 1.0515100497978163,
+        "wrist_pos_error_m": 0.07331232342111264,
+        "wrist_rot_error_rad": 0.5921285942267125,
+        "finger_mae_rad": 0.3664187923477099,
+        "num_frames": 300,
+        "mean_error_success": false,
+        "completion_rate": 0.22333333333333333,
+        "completed_frames": 67
+      },
+      "checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "checkpoint_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "hammer": "9445c609ca491eaf6e1c12d82a66773960cca0ea18ec47ba0d8bcf419230ebfe"
+      },
+      "object_peak_z_m": 0.0332099087536335,
+      "object_airborne_fraction_above_30cm": 0.0,
+      "object_final_z_m": 0.02953140065073967
+    },
+    "reference_peak_z_m": 0.717835545539856,
+    "generator": "scripts/record_modulator_comparisons.py",
+    "panel_gap_px": 48,
+    "display_width_px": 350,
+    "display_panel_width_px": 160,
+    "display_panel_gap_px": 12,
+    "panel_margin_px": 36,
+    "display_panel_margin_px": 9
+  },
+  {
+    "reference_id": "674",
+    "object_name": "torusmedium",
+    "description": "s1_torusmedium_inspect_1",
+    "reference_sha256": "d6f33389c88583f04470bdd698211e7770e06b0f5cd0973b9ef9a42f557081db",
+    "dataset": "unseen_ref",
+    "split": "test",
+    "seed": 42,
+    "frames": 300,
+    "fps": 12,
+    "duration_seconds": 25,
+    "camera_position": [
+      1.18,
+      -0.93,
+      1.25
+    ],
+    "camera_target": [
+      0.45,
+      0.3,
+      0.5
+    ],
+    "horizontal_fov": 48.0,
+    "camera_size": [
+      640,
+      640
+    ],
+    "video_size": [
+      1400,
+      780
+    ],
+    "initial_pose_perturbation": false,
+    "domain_randomization": false,
+    "lag": false,
+    "observation_noise": "Existing task Gaussian noise retained (std 0.002).",
+    "video": "ref_674.mp4",
+    "video_sha256": "090952c69e1777e0fc0a261842038dbcb023eeee3c1d90849dbb8963a1304e37",
+    "preview": "ref_674.webp",
+    "preview_sha256": "a8859bb6d2c79d3ef85e4cd22f1b71df943be3cf2b0730ad271a5a146e1c3228",
+    "left": "with_modulator",
+    "right": "without_modulator",
+    "with_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.011548159908639681,
+        "object_rot_error_rad": 0.5467498508485439,
+        "wrist_pos_error_m": 0.054099073212223986,
+        "wrist_rot_error_rad": 0.3898168203974407,
+        "finger_mae_rad": 0.22299620760947012,
+        "num_frames": 300,
+        "mean_error_success": true,
+        "completion_rate": 1.0,
+        "completed_frames": 300
+      },
+      "checkpoint": "checkpoints/modulator_unseen_ref.pth",
+      "checkpoint_sha256": "52e1433f9f6107c5a10a0d2a22153ffd639ebbc16063d240d1e9a5f75946747d",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "torusmedium": "1b1b96c5c156f1141a8e23af0cf47719ca399baa688a98c63f95de56bb6ab8db"
+      },
+      "object_peak_z_m": 0.6242959499359131,
+      "object_airborne_fraction_above_30cm": 0.7033333333333334,
+      "object_final_z_m": 0.3186235725879669
+    },
+    "without_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.3739465041986742,
+        "object_rot_error_rad": 0.8566781466876392,
+        "wrist_pos_error_m": 0.07957900710436318,
+        "wrist_rot_error_rad": 0.6128456477223283,
+        "finger_mae_rad": 0.32434436075287826,
+        "num_frames": 300,
+        "mean_error_success": false,
+        "completion_rate": 0.25666666666666665,
+        "completed_frames": 77
+      },
+      "checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "checkpoint_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "torusmedium": "1b1b96c5c156f1141a8e23af0cf47719ca399baa688a98c63f95de56bb6ab8db"
+      },
+      "object_peak_z_m": 0.056213390082120895,
+      "object_airborne_fraction_above_30cm": 0.0,
+      "object_final_z_m": 0.030340401455760002
+    },
+    "reference_peak_z_m": 0.6259189248085022,
+    "generator": "scripts/record_modulator_comparisons.py",
+    "panel_gap_px": 48,
+    "display_width_px": 350,
+    "display_panel_width_px": 160,
+    "display_panel_gap_px": 12,
+    "panel_margin_px": 36,
+    "display_panel_margin_px": 9
+  },
+  {
+    "reference_id": "2579",
+    "object_name": "cylindermedium",
+    "description": "s9_cylindermedium_inspect_1",
+    "reference_sha256": "8f04347d5aba176e0340ecdc54b8232cdc009cc038084df76893062ffc3b989b",
+    "dataset": "unseen_ref",
+    "split": "test",
+    "seed": 42,
+    "frames": 300,
+    "fps": 12,
+    "duration_seconds": 25,
+    "camera_position": [
+      1.18,
+      -0.93,
+      1.25
+    ],
+    "camera_target": [
+      0.45,
+      0.3,
+      0.5
+    ],
+    "horizontal_fov": 48.0,
+    "camera_size": [
+      640,
+      640
+    ],
+    "video_size": [
+      1400,
+      780
+    ],
+    "panel_gap_px": 48,
+    "panel_margin_px": 36,
+    "display_width_px": 350,
+    "display_panel_width_px": 160,
+    "display_panel_gap_px": 12,
+    "display_panel_margin_px": 9,
+    "initial_pose_perturbation": false,
+    "domain_randomization": false,
+    "lag": false,
+    "observation_noise": "Existing task Gaussian noise retained (std 0.002).",
+    "video": "ref_2579.mp4",
+    "video_sha256": "a29a9e1569a0a3fff6cadeea860a7fc0cd6fc2c03940c82af445003f841a6f99",
+    "preview": "ref_2579.webp",
+    "preview_sha256": "057ad2666f63e1e5f0e8e30b3454068e38139df4818021236a4fa2fbaa550091",
+    "left": "with_modulator",
+    "right": "without_modulator",
+    "with_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.012277370898336757,
+        "object_rot_error_rad": 0.5634279838167131,
+        "wrist_pos_error_m": 0.0376036904528262,
+        "wrist_rot_error_rad": 0.534484095125809,
+        "finger_mae_rad": 0.2692546082560837,
+        "num_frames": 300,
+        "mean_error_success": true,
+        "completion_rate": 1.0,
+        "completed_frames": 300
+      },
+      "checkpoint": "checkpoints/modulator_unseen_ref.pth",
+      "checkpoint_sha256": "52e1433f9f6107c5a10a0d2a22153ffd639ebbc16063d240d1e9a5f75946747d",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "cylindermedium": "d92393a8957379b9015ae0582b19e2db878b8b6a3b3ab03b731eade5129e3afa"
+      },
+      "object_peak_z_m": 0.46161574125289917,
+      "object_airborne_fraction_above_30cm": 0.6766666666666666,
+      "object_final_z_m": 0.4382766783237457
+    },
+    "without_modulator": {
+      "metrics": {
+        "object_pos_error_m": 0.2820671102280082,
+        "object_rot_error_rad": 0.5638597484959139,
+        "wrist_pos_error_m": 0.07683493132045428,
+        "wrist_rot_error_rad": 0.593839125297059,
+        "finger_mae_rad": 0.34506900846642413,
+        "num_frames": 300,
+        "mean_error_success": false,
+        "completion_rate": 0.30333333333333334,
+        "completed_frames": 91
+      },
+      "checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "checkpoint_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "tracker_checkpoint": "checkpoints/bc_tracker_unseen_ref.pth",
+      "tracker_sha256": "b4e918e91c1c974b945725b469354662b25924abf4d744e3805299864a980c33",
+      "latents": {
+        "cylindermedium": "d92393a8957379b9015ae0582b19e2db878b8b6a3b3ab03b731eade5129e3afa"
+      },
+      "object_peak_z_m": 0.06395741552114487,
+      "object_airborne_fraction_above_30cm": 0.0,
+      "object_final_z_m": 0.06379204243421555
+    },
+    "reference_peak_z_m": 0.4663776755332947,
+    "generator": "scripts/record_modulator_comparisons.py"
+  }
+]

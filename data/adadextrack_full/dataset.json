@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "name": "AdaDexTrack-Full",
+  "references": 2765,
+  "semantic_groups": 444,
+  "objects": 50,
+  "frames_per_reference": 300,
+  "manifest": "manifest.csv",
+  "group_index": "semantic_groups.csv",
+  "group_manifests": "groups/group_{group_id:03d}.csv",
+  "splits": {
+    "unseen_trajectory_train": {
+      "manifest": "splits/unseen_trajectory_train.csv",
+      "references": 2212
+    },
+    "unseen_trajectory_test": {
+      "manifest": "splits/unseen_trajectory_test.csv",
+      "references": 553
+    },
+    "unseen_object_train": {
+      "manifest": "splits/unseen_object_train.csv",
+      "references": 2520
+    },
+    "unseen_object_test": {
+      "manifest": "splits/unseen_object_test.csv",
+      "references": 245
+    }
+  },
+  "reference_id_range": [
+    0,
+    2764
+  ],
+  "group_id_range": [
+    0,
+    443
+  ],
+  "id_assignment": "Full-dataset IDs assigned by ascending source label. Split manifests retain global IDs and original CSV order. IDs differ from the demonstration subsets.",
+  "path_rule": "reference_file is relative to the ancestor containing dataset.json.",
+  "units": {
+    "position": "meter",
+    "joint_angle": "radian",
+    "quaternion_order": "xyzw"
+  },
+  "reference_format": "Original 300-frame numpy dictionaries copied byte-for-byte.",
+  "provenance": "provenance/source_mapping.csv",
+  "object_counts": {
+    "airplane": 35,
+    "alarmclock": 70,
+    "apple": 112,
+    "banana": 3,
+    "binoculars": 23,
+    "bowl": 6,
+    "camera": 112,
+    "cubelarge": 23,
+    "cubemedium": 49,
+    "cubesmall": 33,
+    "cup": 200,
+    "cylinderlarge": 97,
+    "cylindermedium": 53,
+    "cylindersmall": 33,
+    "duck": 89,
+    "elephant": 87,
+    "eyeglasses": 5,
+    "flashlight": 52,
+    "flute": 11,
+    "fryingpan": 24,
+    "gamecontroller": 17,
+    "hammer": 127,
+    "hand": 44,
+    "headphones": 12,
+    "knife": 23,
+    "lightbulb": 14,
+    "mouse": 143,
+    "mug": 148,
+    "phone": 64,
+    "piggybank": 7,
+    "pyramidlarge": 39,
+    "pyramidmedium": 48,
+    "pyramidsmall": 2,
+    "scissors": 3,
+    "spherelarge": 27,
+    "spheremedium": 37,
+    "spheresmall": 16,
+    "stamp": 117,
+    "stanfordbunny": 34,
+    "stapler": 154,
+    "teapot": 14,
+    "toothbrush": 13,
+    "toothpaste": 75,
+    "toruslarge": 12,
+    "torusmedium": 58,
+    "torussmall": 22,
+    "train": 45,
+    "watch": 18,
+    "waterbottle": 117,
+    "wineglass": 198
+  },
+  "purpose": "Full original paper reference corpus with both original train/test partitions. No checkpoint-based selection."
+}

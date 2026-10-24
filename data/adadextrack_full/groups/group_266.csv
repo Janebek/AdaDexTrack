@@ -1,0 +1,2 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+150,266,phone,references/ref_0150.npy,300,s10_phone_call_1,340e73fae2515338de4ab92f34abc6a1d94ec6bec2cc9dd9055f2c3b235966b6

@@ -1,0 +1,4 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+986,49,camera,references/ref_0986.npy,300,s3_camera_takepicture_3,b13e58902dee64a8b059530fe801fc2caf7f31c87da00f4fe886bddfb4110df3
+987,49,camera,references/ref_0987.npy,300,s3_camera_takepicture_3,41b42a7640c4c5e70a8de0ae2a10184ea0205d2e6fde8451408d851b901b5beb
+988,49,camera,references/ref_0988.npy,300,s3_camera_takepicture_3,52a86c2ffad46774c7d5020a5e4a94517eefea6006fbeace2695f9c20c1afdde

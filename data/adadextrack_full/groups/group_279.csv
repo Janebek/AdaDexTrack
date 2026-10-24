@@ -1,0 +1,4 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+1465,279,piggybank,references/ref_1465.npy,300,s5_piggybank_pass_1,8dff45c747718732b1df8dbf3aabf4710d21c183516745d066668748cb1eac9e
+1466,279,piggybank,references/ref_1466.npy,300,s5_piggybank_pass_1,d7ca95fa4c09efdda9edbacf01e8eb07fc48d708ea1797883721629acaec501b
+1467,279,piggybank,references/ref_1467.npy,300,s5_piggybank_pass_1,79ebd563ee7ff8376efae68c18e22cf0ccd4a91696faf86235ee2ab150396b60

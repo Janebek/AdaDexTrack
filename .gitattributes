@@ -1,0 +1,2 @@
+# Preserve exact manifest bytes across platforms for SHA256 checks.
+*.csv -text

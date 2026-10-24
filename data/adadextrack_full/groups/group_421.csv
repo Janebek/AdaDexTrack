@@ -1,0 +1,4 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+238,421,wineglass,references/ref_0238.npy,300,s10_wineglass_pass_1,dc580597fc5682a6c679321401292e6b04f10b40e1948372266eac1cc30ee489
+239,421,wineglass,references/ref_0239.npy,300,s10_wineglass_pass_1,333df9aaa5545f5d2ca8ca1f8d579705bb4f403ed0319112f66fef075d030bf6
+240,421,wineglass,references/ref_0240.npy,300,s10_wineglass_pass_1,ab65fad69becd5dd47d42a6197d99add34e06f77f071a919986580bcac29474f

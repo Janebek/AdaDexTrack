@@ -1,0 +1,4 @@
+reference_id,group_id,object_name,reference_file,num_frames,description,sha256
+2502,36,banana,references/ref_2502.npy,300,s9_banana_pass_1,c61cbb1097edadbe0c2785aef61e2b8337919520febefc43f1c41ca79cfd1cf7
+2503,36,banana,references/ref_2503.npy,300,s9_banana_pass_1,805f579a6115511710f145abfe9dad21d7f2bf0e600c5f73082876104752c17d
+2504,36,banana,references/ref_2504.npy,300,s9_banana_pass_1,902325eabcf4197f200f8bfbd03aca4885acd03b06767da5b4a5ca7b42437eb8
